@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @predefined_symptom.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @predefined_symptom.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_predefined_symptom_path(@predefined_symptom) %> |
+<%= link_to 'Back', predefined_symptoms_path %>

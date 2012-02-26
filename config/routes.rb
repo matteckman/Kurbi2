@@ -1,4 +1,50 @@
 Kurbi2::Application.routes.draw do
+  get "pages/about"
+
+  get "pages/home"
+
+  get "pages/contact"
+
+  resources :user_defined_symptoms
+
+  resources :system_errors
+
+  resources :symptom_categories
+
+  resources :severities
+
+  resources :search_queries
+
+  resources :searches
+
+  resources :roles
+
+  resources :predefined_symptoms
+
+  resources :people
+
+  resources :patient_symptom_searches
+
+  resources :patients
+
+  resources :pages
+
+  resources :messages
+
+  resources :employees
+
+  resources :doctors
+
+  resources :disease_profiles
+
+  resources :days
+
+  resources :daily_records
+
+  resources :addresses
+
+  resources :actions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

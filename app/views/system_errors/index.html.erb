@@ -1,0 +1,25 @@
+<h1>Listing system_errors</h1>
+
+<table>
+  <tr>
+    <th>Error</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @system_errors.each do |system_error| %>
+  <tr>
+    <td><%= system_error.error %></td>
+    <td><%= system_error.description %></td>
+    <td><%= link_to 'Show', system_error %></td>
+    <td><%= link_to 'Edit', edit_system_error_path(system_error) %></td>
+    <td><%= link_to 'Destroy', system_error, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New System error', new_system_error_path %>

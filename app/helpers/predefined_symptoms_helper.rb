@@ -1,0 +1,2 @@
+module PredefinedSymptomsHelper
+end

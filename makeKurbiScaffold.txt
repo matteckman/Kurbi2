@@ -1,0 +1,20 @@
+rails generate scaffold Action name:string description:text
+rails generate scaffold Address line1:string line2:string line3:string city:string state_province:string zip_postal:string
+rails generate scaffold DailyRecord date:date note:text
+rails generate scaffold Day date:date note:text
+rails generate scaffold DiseaseProfile name:string description:text
+rails generate scaffold Doctor
+rails generate scaffold Employee
+rails generate scaffold Message name:string full_message:text
+rails generate scaffold Page name:string body:text
+rails generate scaffold Patient
+rails generate scaffold PatientSymptomSearch
+rails generate scaffold Person first_name:string last_name:string social_security:string birthday:date email:string password:string user_name:string
+rails generate scaffold PredefinedSymptom name:string description:text
+rails generate scaffold Role name:string description:text
+rails generate scaffold Search
+rails generate scaffold SearchQuery search_query:string
+rails generate scaffold Severity rank:integer date:date
+rails generate scaffold SymptomCategory category:string
+rails generate scaffold SystemError error:string description:text
+rails generate scaffold UserDefinedSymptom name:string description:text

@@ -1,0 +1,21 @@
+<h1>Listing patient_symptom_searches</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @patient_symptom_searches.each do |patient_symptom_search| %>
+  <tr>
+    <td><%= link_to 'Show', patient_symptom_search %></td>
+    <td><%= link_to 'Edit', edit_patient_symptom_search_path(patient_symptom_search) %></td>
+    <td><%= link_to 'Destroy', patient_symptom_search, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Patient symptom search', new_patient_symptom_search_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Rank:</b>
+  <%= @severity.rank %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @severity.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_severity_path(@severity) %> |
+<%= link_to 'Back', severities_path %>

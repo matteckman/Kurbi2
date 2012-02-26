@@ -1,0 +1,23 @@
+<h1>Listing search_queries</h1>
+
+<table>
+  <tr>
+    <th>Search query</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @search_queries.each do |search_query| %>
+  <tr>
+    <td><%= search_query.search_query %></td>
+    <td><%= link_to 'Show', search_query %></td>
+    <td><%= link_to 'Edit', edit_search_query_path(search_query) %></td>
+    <td><%= link_to 'Destroy', search_query, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Search query', new_search_query_path %>

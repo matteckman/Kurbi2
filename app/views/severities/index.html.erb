@@ -1,0 +1,25 @@
+<h1>Listing severities</h1>
+
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @severities.each do |severity| %>
+  <tr>
+    <td><%= severity.rank %></td>
+    <td><%= severity.date %></td>
+    <td><%= link_to 'Show', severity %></td>
+    <td><%= link_to 'Edit', edit_severity_path(severity) %></td>
+    <td><%= link_to 'Destroy', severity, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Severity', new_severity_path %>
