@@ -1,3 +1,5 @@
 class Person < ActiveRecord::Base
-	has_one :person
+	belongs_to :person
+	belongs_to :doctor
+	belongs_to :employee
 end

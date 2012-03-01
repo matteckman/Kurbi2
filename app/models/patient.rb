@@ -1,3 +1,4 @@
 class Patient < ActiveRecord::Base
-	belongs_to :Person
+	has_one :person
+	accepts_nested_attributes_for :person
 end
