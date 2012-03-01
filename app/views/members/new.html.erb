@@ -1,0 +1,16 @@
+<!--This is the new user's sign up form page-->
+<%= render 'shared/home_sidenav' %>
+
+<section id="main-profile" class="mid-shadow">
+	<div id="sign_up_form">
+		<h2>Sign up</h2>
+		
+		<%= form_for(@member) do |f| %>
+			<%= render 'form_new', :f => f %>		
+			<div class="actions">
+				<%= f.submit "Sign up", :class => "button round" %>
+			</div>
+		<% end %>
+		<p>Already a user? <%= link_to "Sign in", signin_path %></p>
+	</div><!--#sign_up_form-->
+</section><!--#main-profile-->

@@ -1,13 +1,153 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree .
+ *= require_tree . 
 */
+
+/*---------------------MAIN---------------*/
+* { margin: 0; padding: 0; }
+
+html, body, #wrap { height: auto; font-family: Museo; }
+
+#wrap { min-height: 100%; }
+
+#main { 
+	overflow: auto;
+	padding-bottom: 150px; 
+}
+
+/*------------------TYPE-------------------*/
+h1 {
+	font-size: 32px;
+	color: #253E57;
+}
+
+h2 {
+	font-size:24px;
+	color: #253E57;
+	text-decoration: underline;
+}
+
+h3 {
+	color:  #333;
+	font-size: 16px;
+	text-decoration: underline;
+}
+
+p {
+	color: #444;	
+}
+
+/*------------------LINKS-------------------*/
+a {
+	text-decoration: none;
+	&:hover { text-decoration: underline; }
+}
+
+/*------------------FLASH-------------------*/
+.flash {
+	margin:20px 0 0 20px;
+	padding: 10px;
+	width: 200px;
+	height: 20px;
+	background: #ccc;
+	border: 2px solid #2D445B;
+}
+/*-----------------HEADER------------------*/
+header {
+	width: 100%;
+	height: 90px;
+	background: url(../images/kurbi-header-bkgd.png) repeat-x;
+	
+	img {
+		margin:25px 0 0 50px;
+		border: none;
+	}
+		
+	nav {
+		float:right;
+		margin:5px 50px 0 0;
+		background: transparent;
+	}
+}
+
+/*------------------FOOTER------------------*/
+footer {
+	position: relative;
+	margin-top: -150px;
+	height: 150px;
+	background: #279958;
+	clear: both;
+}
+
+#footer-bar {
+	position: relative;
+	top: 110px;
+	height: 40px;
+	background: #E0E0E0;
+	border-top:2px solid #ccc;
+	
+	#footer-nav {
+		float: right;
+		font-size: 13px;
+		margin:13px 20px 0 0;
+		
+		ul {
+			liststyle: none;
+		}
+		
+		li {
+			display: inline;
+			padding-right: 5px;
+		}
+		
+		a, a:visited {
+			color: #aaa;
+			&:hover { color: #5994C8; }
+			&:active { color: #5994C8; }
+		}
+	}
+	
+	#sm-icons {
+		float: left;
+		margin:5px 0 0 20px;
+		
+		li {
+			display: inline;
+			padding-right: 5px;
+		}
+	}		
+}
+
+/*------------------MISC--------------------*/
+/*ROUND CORNERS*/
+.round {
+	-moz-border-radius:    5px;
+	-webkit-border-radius: 5px;
+	border-radius:         5px;
+}
+
+/*SHADOW EFFECT*/
+.top-shadow {
+	position:relative;
+    box-shadow: 0px -3px 8px rgba(0, 0, 0, 0.80);
+    -moz-box-shadow: 0px -3px 8px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 0px -3px 8px rgba(0, 0, 0, 0.80);
+}
+
+.bottom-shadow {
+	position:relative;
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.80);
+	-moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.80);
+	-webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.80);	
+}
+
+.mid-shadow {
+	position:relative;
+    box-shadow: 4px 3px 8px rgba(0, 0, 0, 0.80);
+    -moz-box-shadow: 4px 3px 8px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 4px 3px 8px rgba(0, 0, 0, 0.80);
+}
+	

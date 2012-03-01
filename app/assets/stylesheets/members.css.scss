@@ -1,3 +1,33 @@
-// Place all the styles related to the Members controller here.
+// Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*-----------------PROFILES-------------------*/
+#main-profile {
+	margin:85px 0 80px 194px;
+	width: 838px;
+	min-height: 499px;
+	height: auto;
+	background: url(../images/main-bkgd.png) repeat;
+}
+
+#sign_up_form {
+	margin-left: 25px;
+	
+	h2 {
+		padding-top: 20px;
+	}
+	
+	p {
+		color: #2D445B;
+		margin:-80px 0 0 115px;
+	}
+	
+	a, a:visited {
+		color: #fff;
+		text-decoration: underline;
+	}
+	
+	a:hover {
+		text-decoration: none;
+	}
+}

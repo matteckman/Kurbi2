@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kurbi2</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="wrap">
+		<%= render 'layouts/header' %>
+		<div id="main">
+			<% flash.each do |key, value| %>
+			<div class="flash <%= key %> round"><%= value %></div>
+			<% end %>
+			<%= yield %>
+		</div><!--#main-->
+	</div><!--#wrap-->
+	<%= render 'layouts/footer' %>
 </body>
 </html>

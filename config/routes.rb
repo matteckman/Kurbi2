@@ -1,17 +1,35 @@
 Kurbi2::Application.routes.draw do
-  get "pages/about"
+  get "sessions/new"
+  
+#  get "pages/about"
+#  get "pages/home"
+#  get "pages/contact"
+  
+  #resources :members do
+  #  resources :journal, :history
+  #end	
+  resources :members
+  resources :sessions,   :only => [:new, :create, :destroy]
+  
+  root :to => 'pages#home'
+  
+  match '/public/about',   :to => 'pages#about',      :as => 'about'
+  match '/public/home',    :to => 'pages#home',       :as => 'home'
+  match '/public/contact', :to => 'pages#contact',    :as => 'contact' 
+  match '/member/signup',  :to => 'members#new',      :as => 'signup'
+  match '/member/signin',  :to => 'sessions#new',     :as => 'signin'
+  match '/member/signout', :to => 'sessions#destroy', :as => 'signout'
 
-  get "pages/home"
-
-  get "pages/contact"
+  match '/admin/symptom_categories/index', :to => 'symptom_categories#index'
+  match '/admin/symptom_categories/new', :to => 'symptom_categories#new'
 
   resources :user_defined_symptoms
 
-  resources :system_errors
+#  resources :system_errors
 
   resources :symptom_categories
 
-  resources :severities
+#  resources :severities
 
   resources :search_queries
 
@@ -21,84 +39,27 @@ Kurbi2::Application.routes.draw do
 
   resources :predefined_symptoms
 
-  resources :people
+#  resources :people
 
-  resources :patient_symptom_searches
+#  resources :patient_symptom_searches
 
   resources :patients
 
-  resources :pages
+#  resources :pages
 
-  resources :messages
+#  resources :messages
 
   resources :employees
 
   resources :doctors
 
-  resources :disease_profiles
+#  resources :disease_profiles
 
-  resources :days
+#  resources :days
 
   resources :daily_records
 
-  resources :addresses
+#  resources :addresses
 
-  resources :actions
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+#  resources :actions
 end

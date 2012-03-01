@@ -1,25 +1,89 @@
-<%= form_for(@page) do |f| %>
-  <% if @page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+<div id="form">
+<form id="form3" name="form3" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate
+action="https://rightside.wufoo.com/forms/q7x3z9/#public">
 
-      <ul>
-      <% @page.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<ul>
+<li id="foli3" class="notranslate      ">
+<label class="desc" id="title3" for="Field3">
+First Name
+<span id="req_3" class="req">*</span>
+</label>
+<div>
+<input id="Field3" name="Field3" type="text" class="field text medium" value="" maxlength="255" tabindex="1" onkeyup="" required />
+</div>
+</li><li id="foli4" class="notranslate      ">
+<label class="desc" id="title4" for="Field4">
+Last Name
+<span id="req_4" class="req">*</span>
+</label>
+<div>
+<input id="Field4" name="Field4" type="text" class="field text medium" value="" maxlength="255" tabindex="2" onkeyup="" required />
+</div>
+</li><li id="foli5" class="notranslate      ">
+<label class="desc" id="title5" for="Field5">
+Email
+<span id="req_5" class="req">*</span>
+</label>
+<div>
+<input id="Field5" name="Field5" type="email" spellcheck="false" class="field text medium" value="" maxlength="255" tabindex="3" required /> 
+</div>
+</li>
+<li id="foli108" class="notranslate       ">
+<label class="desc" id="title108" for="Field108">
+Which are you?
+<span id="req_108" class="req">*</span>
+</label>
+<div>
+<select id="Field108" name="Field108" class="field select medium" tabindex="7" > 
+<option value="Person Living with MS" selected="selected">
+Person Living with MS
+</option>
+<option value="Care-Giver" >
+Care-Giver
+</option>
+<option value="Physical Therapist" >
+Physical Therapist
+</option>
+<option value="Personal Trainer" >
+Personal Trainer
+</option>
+<option value="Work with MS Society" >
+Work with MS Society
+</option>
+<option value="Other" >
+Other
+</option>
+</select>
+</div>
+</li>
+<li id="foli109" 
+class="notranslate      "><label class="desc" id="title109" for="Field109">
+Comments
+</label>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div>
+<textarea id="Field109" 
+name="Field109" 
+class="field textarea medium" 
+spellcheck="true" 
+rows="10" cols="50" 
+tabindex="8" 
+onkeyup=""
+ ></textarea>
+
+</div>
+</li> <li class="buttons ">
+<div>
+
+<input id="saveForm" name="saveForm" class="btTxt round" type="submit" value="Submit"
+ /></div>
+</li>
+
+<li class="hide">
+<label for="comment">Do Not Fill This Out</label>
+<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+<input type="hidden" id="idstamp" name="idstamp" value="5Nbkc3RVyHtxW7wOrTtZ23TzRQOHebR6P8VPyTG6AIo=" />
+</li>
+</ul>
+</form> 
+</div><!--#form-->
