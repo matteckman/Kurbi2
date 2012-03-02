@@ -38,6 +38,11 @@
 ul.side-nav-style { background: url(../images/bkgd-btn.gif) repeat;}
 ul.side-nav-style li { border-bottom: 5px solid #fff; }
 
+/*----------SIDENAV CURRENT STATE-------------*/
+.current {
+	background: url(../images/main-bkgd.png) repeat; 	
+}
+
 /*-----------------FORM FOR-------------------*/
 .field {
 	margin-top: 10px;
@@ -55,7 +60,7 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 }
 
 .actions .button {
-	margin-top: 10px;
+	margin:10px 0 0 0;
 	padding:10px 20px 10px 20px;
 	font-family: Museo;
 	font-size: 14px;

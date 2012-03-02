@@ -39,4 +39,7 @@ module PagesHelper
 		image_tag("facebook.gif", :alt => "Kurbi Mobile Health Facebook Profile")
 	end
 	
+	def home_image
+		image_tag("main-image.png")
+	end
 end

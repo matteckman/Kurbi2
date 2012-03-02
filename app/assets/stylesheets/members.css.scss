@@ -2,16 +2,73 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*-----------------PROFILES-------------------*/
-#main-profile {
-	margin:85px 0 80px 194px;
+#member_new {
+	margin:55px 0 0 194px;
 	width: 838px;
 	min-height: 499px;
-	height: auto;
+	height: 100%;
 	background: url(../images/main-bkgd.png) repeat;
+	
+	#profile-nav {
+		position:relative;
+		top: -21px;
+		
+		ul {
+			list-style: none;
+		}
+		
+		li {
+			display: inline;
+			padding-right: 3px;
+		}
+		
+		a, a:visited {
+			padding:5px 10px 5px 10px;
+			font-size: 12px;
+			color: #444;
+			background-color: #C1C1C1;
+			text-decoration: none;
+			&:hover { text-decoration: underline; }
+			&:active { color: #444; }
+		}
+	}
 }
 
+#main-profile {
+	margin:85px 0 0 194px;
+	width: 838px;
+	min-height: 499px;
+	height: 100%;
+	background: url(../images/main-bkgd.png) repeat;
+	
+	#profile-nav {
+		position:relative;
+		top: -21px;
+		
+		ul {
+			list-style: none;
+		}
+		
+		li {
+			display: inline;
+			padding-right: 3px;
+		}
+		
+		a, a:visited {
+			padding:5px 10px 5px 10px;
+			font-size: 12px;
+			color: #444;
+			background-color: #C1C1C1;
+			text-decoration: none;
+			&:hover { text-decoration: underline; }
+			&:active { color: #444; }
+		}
+	}
+}
+
+
 #sign_up_form {
-	margin-left: 25px;
+	margin:0 0 30px 25px;
 	
 	h2 {
 		padding-top: 20px;
@@ -29,5 +86,13 @@
 	
 	a:hover {
 		text-decoration: none;
+	}
+}
+
+#edit_settings_form {
+	margin:0 0 0 25px;
+	
+	h2 {
+		padding-top: 20px;
 	}
 }

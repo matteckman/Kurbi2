@@ -1,12 +1,16 @@
 <header class="bottom-shadow">
-	<%= link_to logo, root_path %>
-	
-	<nav>
-		<% if current_member %>
-		    <%= link_to signout_btn, signout_path %>
-		  <% else %>
-		    <%= link_to signin_btn, signin_path %>
-		  <% end %>
+
+	<% if signed_in? %>
+		<%= link_to logo, current_member %>
 		
-	</nav>
+		<nav>
+			<%= link_to signout_btn, signout_path %>
+		</nav>
+	<% else %>
+		<%= link_to logo, root_path %>
+		
+		<nav>
+			<%= link_to signin_btn, signin_path %>
+		</nav>
+	<% end %>
 </header>

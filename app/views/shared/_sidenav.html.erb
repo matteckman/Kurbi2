@@ -1,7 +1,13 @@
 <nav id="main-sidebar">
 	<ul class="side-nav-style">
-		<li><%= link_to "Journal", "#" %></li>
-		<li><%= link_to "History", "#" %></li>
-		<li><%= link_to "Profile", "#" %></li>
+		<li class="<%= "current" if params[:controller] == "journals" %>">
+			<%= link_to "Journal", "#" %>
+		</li>
+		<li class="<%= "current" if params[:controller] == "history" %>">
+			<%= link_to "History", "#" %>
+		</li>
+		<li class="<%= "current" if params[:controller] == "members" %>">
+			<%= link_to "Profile", @member %>
+		</li>
 	</ul>
 </nav>

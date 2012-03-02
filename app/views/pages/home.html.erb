@@ -1,7 +1,18 @@
 <%= render 'shared/home_sidenav' %>
 
 <div id="main-home" class="mid-shadow">
-	<section id="video">
-		<iframe width="700" height="386" rel=nofollow src="http://www.youtube.com/embed/CBOt2XKl2Rw?HD=1;rel=0;showinfo=0" frameborder="0" allowfullscreen></iframe>
-	</section>
-</div>
+<h1>Track, Manage & Understand Your Health</h1>
+	<section id="home-left">
+		<p>Kurbi is a breakthrough web application that helps people living with chronic disease to more easily communicate the daily challenges of their symptoms to care-providers in-between scheduled visits.</p>
+		<div class="actions">
+		  <%= link_to "Sign up!", signup_path, :id => "home-sign-up", :class => "button round" %>
+		  <div class="home-link">
+		  	<p>Already a user? <%= link_to "Sign in now.", signin_path %></p>
+		  </div><!--.home-link-->
+		</div><!--.actions-->				
+	</section><!--#home-left-->
+	
+	<section id="home-right">
+		<%= home_image %>				
+	</section><!--#home-right-->
+</div><!--#main-home-->

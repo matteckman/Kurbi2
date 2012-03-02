@@ -6,7 +6,7 @@
 #home-sidebar {
 	position:relative;
 	float: left;
-	margin:125px 0 0 0;
+	margin:95px 0 0 0;
 	width: 194px;
 	font-size: 16px;
 	
@@ -39,18 +39,62 @@ ul.side-nav-style { background: url(../images/bkgd-btn.gif) repeat;}
 ul.side-nav-style li { border-bottom: 5px solid #fff; }
 
 #main-home {
-	margin:85px 0 80px 194px;
+	margin:55px 0 0 194px;
 	width: 838px;
 	min-height: 499px;
 	height: auto;
 	background: url(../images/main-bkgd.png) repeat;
+	
+	h1 {
+		position: relative;
+		top: 20px;
+		color: #fff;
+		text-align: center;
+		font-weight: lighter;
+		font-size: 40px;
+	}
+	
+	p {
+		color: #fff;
+		line-height: 25px;
+	}
+	
+	#home-left {
+		position: relative;
+		float: left;
+		top: 85px;
+		width: 330px;
+		font-size: 17px;
+		margin:0 0 0 20px;
+		
+		#home-sign-up {
+			position: relative;
+			top: 40px;
+		}
+		
+		.home-link {
+			position: relative;
+			top:25px;
+			left: 100px;
+			font-size: 16px;
+			
+			a, a:visited {
+				color: #fff;
+				text-decoration: underline;
+				&:hover { text-decoration: none; }
+			}
+		}
+	}
+	
+	#home-right {
+		position: relative;
+		top: 60px;
+		float: right;
+		margin:0 20px 0 0;
+	}
 }
 
 
-#video {
-	padding-top: 56px;
-	margin-left: 69px;
-}
 
 /*-----------------ABOUT-------------------*/
 #about-section {
@@ -65,7 +109,7 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 	
 	#about-text p {
 		width: 850px;
-		margin:15px 0 15px 0;
+		margin:15px 0 0 0;
 	}
 	
 	#team_info {
@@ -86,7 +130,7 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 			left: 110px;
 			float: left;
 			margin:0 0 0 0;
-			width: 350px;
+			width: 300px;
 			font-size: 14px;
 			font-style: italic;
 		}
@@ -100,15 +144,17 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 			text-decoration: underline;
 		}
 		
-		#left-profiles {
-			float:left;
-			margin:20px 0 0 0;
+		table {
+			width: 850px;
+			margin:10px 0 -80px 0;
+			
+			tr {
+				height: 120px;
+			}
+			
+			td {}
 		}
 		
-		#right-profiles {
-			float:right;
-			margin:20px 0 0 0;
-		}	
 	}
 }
 
