@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302161707) do
+ActiveRecord::Schema.define(:version => 20120302205225) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -87,9 +87,11 @@ ActiveRecord::Schema.define(:version => 20120302161707) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "pasword_hash"
     t.string   "password_salt"
+    t.string   "password_hash"
   end
+
+  add_index "patients", ["email"], :name => "index_patients_on_email", :unique => true
 
   create_table "people", :force => true do |t|
     t.string   "social_security"

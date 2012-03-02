@@ -1,0 +1,31 @@
+<%= form_for(@patient) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_field :first_name %>
+  </div><!--.field-->
+  
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name %>
+  </div><!--.field-->
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div><!--.field-->
+  
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div><!--.field-->
+  
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div><!--.field-->
+  
+  <div class="actions">
+    <%= f.submit "Update", :class => "button round" %>
+  </div><!--.actions-->
+<% end %>

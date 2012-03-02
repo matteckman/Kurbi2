@@ -14,7 +14,8 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-
+	@title = (@patient.first_name + @patient.last_name)
+	
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @patient }
@@ -25,6 +26,7 @@ class PatientsController < ApplicationController
   # GET /patients/new.json
   def new
     @patient = Patient.new
+    @title = "Sign up"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class PatientsController < ApplicationController
   # GET /patients/1/edit
   def edit
     @patient = Patient.find(params[:id])
+    @title = "Edit Account Settings"
   end
 
   # POST /patients
@@ -44,9 +47,11 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+      	#sign_in @patient
+        format.html { redirect_to @patient, notice: 'Hi there! Welcome to Kurbi!' }
         format.json { render json: @patient, status: :created, location: @patient }
       else
+      	@title = "Sign up"
         format.html { render action: "new" }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
@@ -60,9 +65,10 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
-        format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
+        format.html { redirect_to @patient, notice: 'Your account settings have been updated.' }
         format.json { head :no_content }
       else
+      	@title = "Edit Account Settings"
         format.html { render action: "edit" }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end

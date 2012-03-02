@@ -1,5 +1,16 @@
-<h1>New patient</h1>
+<!--This is the new user's sign up form page-->
+<%= render 'shared/home_sidenav' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', patients_path %>
+<section id="patient_new" class="mid-shadow">
+	<div id="sign_up_form">
+		<h2>Sign up</h2>
+		
+		<%= form_for(@patient) do |f| %>
+			<%= render 'form_new', :f => f %>		
+			<div class="actions">
+				<%= f.submit "Sign up", :class => "button round" %>
+			</div>
+		<% end %>
+		<p>Already a member? <%= link_to "Sign in", signin_path %></p>
+	</div><!--#sign_up_form-->
+</section><!--#main-profile-->
