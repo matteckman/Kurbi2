@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226212603) do
+ActiveRecord::Schema.define(:version => 20120302161707) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -84,18 +84,29 @@ ActiveRecord::Schema.define(:version => 20120226212603) do
   create_table "patients", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "pasword_hash"
+    t.string   "password_salt"
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "social_security"
     t.date     "birthday"
-    t.string   "email"
-    t.string   "password"
     t.string   "user_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "location"
+    t.string   "race"
+    t.string   "sex"
+    t.text     "bio"
+    t.string   "first_occurrence"
+    t.string   "year_diagnosed"
+    t.string   "condition"
+    t.string   "doctor"
+    t.text     "medications"
+    t.integer  "patient_id"
   end
 
   create_table "predefined_symptoms", :force => true do |t|
