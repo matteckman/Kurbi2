@@ -1,4 +1,7 @@
 class PatientsController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :update]
+  before_filter :correct_patient, :only => [:edit, :update]
+  
   # GET /patients
   # GET /patients.json
   def index
@@ -14,7 +17,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-	@title = (@patient.first_name + @patient.last_name)
+	@title = (@patient.first_name + " " + @patient.last_name)
 	
     respond_to do |format|
       format.html # show.html.erb
@@ -47,8 +50,8 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-      	#sign_in @patient
-        format.html { redirect_to @patient, notice: 'Hi there! Welcome to Kurbi!' }
+      	sign_in @patient
+        format.html { redirect_to @patient, flash[:success] = "Hi there! Welcome to Kurbi!" }
         format.json { render json: @patient, status: :created, location: @patient }
       else
       	@title = "Sign up"
@@ -62,17 +65,13 @@ class PatientsController < ApplicationController
   # PUT /patients/1.json
   def update
     @patient = Patient.find(params[:id])
-
-    respond_to do |format|
-      if @patient.update_attributes(params[:patient])
-        format.html { redirect_to @patient, notice: 'Your account settings have been updated.' }
-        format.json { head :no_content }
-      else
-      	@title = "Edit Account Settings"
-        format.html { render action: "edit" }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
-      end
-    end
+	if @patient.update_attributes(params[:patient])
+		flash[:success] = "Your account settings have been updated."
+		redirect_to @patient
+	else
+		@title = "Edit Account Settings"
+		render "edit"
+	end
   end
 
   # DELETE /patients/1
@@ -86,4 +85,14 @@ class PatientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  	def authenticate
+  		deny_access unless signed_in?
+  	end
+  	
+  	def correct_patient
+  		@patient = Patient.find(params[:id])
+  		redirect_to(root_path) unless current_patient?(@patient)
+  	end
 end

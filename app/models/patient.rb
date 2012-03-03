@@ -3,7 +3,7 @@ class Patient < ActiveRecord::Base
 	accepts_nested_attributes_for :person
 	
 	attr_accessor :password
-	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
 	
 	validates :first_name, :presence => true, :length => { :maximum => 50 }
 	validates :last_name,  :presence => true, :length => { :maximum => 50 }
@@ -24,6 +24,11 @@ class Patient < ActiveRecord::Base
 			patient = find_by_email(email)
 			return nil if patient.nil?
 			return patient if patient.has_password?(submitted_password)
+		end
+		
+		def self.authenticate_with_salt(id, cookie_salt)
+			patient = find_by_id(id)
+			(patient && patient.password_salt == cookie_salt) ? patient : nil
 		end
 	
 	

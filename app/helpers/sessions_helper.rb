@@ -1,31 +1,27 @@
 module SessionsHelper
 	
-	def sign_in(member)
-		cookies.permanent.signed[:remember_token] = [member.id, member.password_salt]
-		current_member = member
-		@current_member = member
+	def sign_in(patient)
+		cookies.permanent.signed[:remember_token] = [patient.id, patient.password_salt]
+		current_patient = patient
+		@current_patient = patient
 	end
 	
-	def current_member
-		@current_member ||= member_from_remember_token
+	def current_patient
+		@current_patient ||= patient_from_remember_token
 	end
 	
 	def signed_in?
-		return !current_member.nil?
+		return !current_patient.nil?
 	end
 	
 	def sign_out
-		current_member = nil
-		@current_member = nil
+		current_patient = nil
+		@current_patient = nil
 		cookies.delete(:remember_token)
 	end
 	
-	def current_member?(member)
-		member == current_member
-	end
-	
-	def authenticate
-		deny_access unless signed_in?
+	def current_patient?(patient)
+		patient == current_patient
 	end
 	
 	def deny_access
@@ -40,8 +36,8 @@ module SessionsHelper
 	
 	private
 	
-		def member_from_remember_token
-			Member.authenticate_with_salt(*remember_token)
+		def patient_from_remember_token
+			Patient.authenticate_with_salt(*remember_token)
 		end
 		
 		def remember_token

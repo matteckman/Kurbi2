@@ -1,6 +1,9 @@
-<h1>Editing patient</h1>
+<%= render 'shared/sidenav' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @patient %> |
-<%= link_to 'Back', patients_path %>
+<section id="main-profile" class="mid-shadow">
+	<%= render 'shared/profile_nav' %>
+	<div id="edit_settings_form">
+		<h2>Edit Account Settings</h2>
+		<%= render 'form_edit' %>
+	</div><!--#edit_settings_form-->
+</section><!--#main_profile-->

@@ -4,19 +4,20 @@ class SessionsController < ApplicationController
   end
   
   def create
-    member = Member.authenticate(params[:email], params[:password])
-    if member
-      session[:member_id] = member.id
-      redirect_to root_path, :notice => "Logged in!"
-    else
-      flash.now.alert = "Invalid email or password"
-      render "new"
-    end
+      patient = Patient.authenticate(params[:email],
+                                     params[:password])
+      if patient.nil?
+        flash.now[:error] = "Invalid email/password combination."
+        @title = "Sign in"
+        render 'new'
+      else
+       sign_in patient
+       redirect_back_or patient
+      end
   end
-  
+      
   def destroy
-  	@title = "Sign out"
-    session[:member_id] = nil
+  	sign_out
     redirect_to root_path
   end
 end
