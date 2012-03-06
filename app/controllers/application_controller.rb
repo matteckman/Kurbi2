@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
- 
+  include SessionsHelper
+  
   private
   	def current_patient
   		@current_patient ||= Patient.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]

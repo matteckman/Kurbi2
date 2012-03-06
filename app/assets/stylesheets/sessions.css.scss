@@ -5,6 +5,16 @@
 #new_session {
 	margin:30px auto;
 	width: 1020px;
+	
+	p {
+		margin-bottom: 8px;
+		
+		a, a:visited {
+			color: #333;
+			text-decoration: none;
+			&:hover { text-decoration: underline; }
+		}
+	}
 }
 
 /*-----------------FORM FOR-------------------*/

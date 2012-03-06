@@ -47,7 +47,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(params[:patient])
     if @patient.save
-        session[:patient_id] = @patient.id
+        sign_in @patient
         redirect_to @patient, notice: "Welcome to Kurbi! Thank you for signing up."
     else
         @title = "Sign up"
