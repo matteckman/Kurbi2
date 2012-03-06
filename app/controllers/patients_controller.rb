@@ -1,6 +1,5 @@
 class PatientsController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :update]
-  before_filter :correct_patient, :only => [:edit, :update]
+  before_filter :authorize, :only => [:show, :edit, :update]
   
   # GET /patients
   # GET /patients.json
@@ -18,7 +17,7 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
 	@title = (@patient.first_name + " " + @patient.last_name)
-	
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @patient }
@@ -47,18 +46,13 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(params[:patient])
-
-    respond_to do |format|
-      if @patient.save
-      	sign_in @patient
-        format.html { redirect_to @patient, flash[:success] = "Hi there! Welcome to Kurbi!" }
-        format.json { render json: @patient, status: :created, location: @patient }
-      else
-      	@title = "Sign up"
-        format.html { render action: "new" }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
-      end
-    end
+    if @patient.save
+        session[:patient_id] = @patient.id
+        redirect_to @patient, notice: "Welcome to Kurbi! Thank you for signing up."
+    else
+        @title = "Sign up"
+        render "new"
+    end 
   end
 
   # PUT /patients/1
@@ -86,13 +80,6 @@ class PatientsController < ApplicationController
     end
   end
   
-  private
-  	def authenticate
-  		deny_access unless signed_in?
-  	end
-  	
-  	def correct_patient
-  		@patient = Patient.find(params[:id])
-  		redirect_to(root_path) unless current_patient?(@patient)
-  	end
+ 
 end
+

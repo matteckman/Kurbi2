@@ -4,20 +4,22 @@ class SessionsController < ApplicationController
   end
   
   def create
-      patient = Patient.authenticate(params[:email],
-                                     params[:password])
-      if patient.nil?
-        flash.now[:error] = "Invalid email/password combination."
-        @title = "Sign in"
-        render 'new'
+      patient = Patient.find_by_email(params[:email])
+      if patient && patient.authenticate(params[:password])
+      	if params[:remember_me]
+      	  cookies.permanent[:auth_token] = patient.auth_token
+        else
+      	  cookies[:auth_token] = patient.auth_token
+      	end
+      	redirect_to patient, notice: "Logged in!"
       else
-       sign_in patient
-       redirect_back_or patient
+      	flash.now[:error] = "Invalid email/password combination."
+      	render "new"
       end
   end
       
   def destroy
-  	sign_out
-    redirect_to root_path
+  	cookies.delete(:auth_token)
+    redirect_to root_path, notice: "Logged out!"
   end
 end

@@ -15,7 +15,8 @@ html, body, #wrap { height: auto; }
 
 #main { 
 	overflow: auto;
-	padding-bottom: 90px;	 
+	padding-bottom: 90px;	
+	font-family: 'Museo300'; 
 }
 
 /*------------------TYPE-------------------*/
@@ -153,7 +154,7 @@ header {
 #feedback:hover {
 	width: 50px;
 	height: 90px;
-	background: url(../images/feedback-btn-hover.png);
+	background: url(/images/feedback-btn-hover.png);
 }
 /*------------------FOOTER------------------*/
 footer {

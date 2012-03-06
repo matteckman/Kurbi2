@@ -1,15 +1,9 @@
 Kurbi2::Application.routes.draw do
-  get "sessions/new"
-  
-#  get "pages/about"
-#  get "pages/home"
-#  get "pages/contact"
-  
-  #resources :members do
-  #  resources :journal, :history
-  #end	
-  #resources :members
-  resources :sessions,   :only => [:new, :create, :destroy]
+    
+  get "password_resets/new"
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :password_resets
   
   root :to => 'pages#home'
   

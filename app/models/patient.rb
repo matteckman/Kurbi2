@@ -1,53 +1,33 @@
 class Patient < ActiveRecord::Base
+	has_secure_password
+	
+	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+	
 	has_one :person, :dependent => :destroy
 	accepts_nested_attributes_for :person
-	
-	attr_accessor :password
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
 	
 	validates :first_name, :presence => true, :length => { :maximum => 50 }
 	validates :last_name,  :presence => true, :length => { :maximum => 50 }
 	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email,    :presence => true,
-					     :format => { :with => email_regex },
+	validates :email,    :format => { :with => email_regex },
 					     :uniqueness => { :case_sensitive => false }
-	validates :password, :presence => true,
-	                     :confirmation => true,
+	validates :password, :confirmation => true,
 	                     :length => { :within => 6..40 }
-	before_save :encrypt_password
-		def has_password?(submitted_password)
-			password_hash == encrypt(submitted_password)
-		end
-		
-		def self.authenticate(email, submitted_password)
-			patient = find_by_email(email)
-			return nil if patient.nil?
-			return patient if patient.has_password?(submitted_password)
-		end
-		
-		def self.authenticate_with_salt(id, cookie_salt)
-			patient = find_by_id(id)
-			(patient && patient.password_salt == cookie_salt) ? patient : nil
-		end
 	
+	before_create { generate_token(:auth_token) }                     
 	
+	def send_password_reset
+		generate_token(:password_reset_token)
+		self.password_reset_sent_at = Time.zone.now
+		save!
+		PatientMailer.password_reset(self).deliver
+	end
 	
-	private
-		def encrypt_password
-			self.password_salt = make_salt unless has_password?(password)
-			self.password_hash = encrypt(password)
-		end
-		
-		def encrypt(string)
-			secure_hash("#{password_salt}-#{string}")
-		end
-		
-		def make_salt
-			secure_hash("#{Time.now.utc}-#{password}")
-		end
-		
-		def secure_hash(string)
-			Digest::SHA2.hexdigest(string)
-		end
+	def generate_token(column)
+		begin
+			self[column] = SecureRandom.urlsafe_base64
+		end while Patient.exists?(column => self[column])
+	end
+	
 end
