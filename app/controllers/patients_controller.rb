@@ -49,6 +49,7 @@ class PatientsController < ApplicationController
     if @patient.save
         sign_in @patient
         redirect_to @patient, notice: "Welcome to Kurbi! Thank you for signing up."
+        PatientMailer.registration_confirmation(@patient).deliver
     else
         @title = "Sign up"
         render "new"

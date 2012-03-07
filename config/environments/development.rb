@@ -38,5 +38,5 @@ Kurbi2::Application.configure do
   config.assets.debug = true
   
   # Config for the mailer --BE SURE TO CHANGE UPON DEPLOYMENT--
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+   config.action_mailer.delivery_method = :smtp
 end

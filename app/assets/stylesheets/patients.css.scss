@@ -32,6 +32,12 @@
 			&:active { color: #444; }
 		}
 	}
+	
+	.already_member p {
+		position: relative;
+		top: 50px;
+		right: 15px;
+	}
 }
 
 #main-profile {

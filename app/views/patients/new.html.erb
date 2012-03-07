@@ -11,6 +11,8 @@
 				<%= f.submit "Sign up", :class => "button round" %>
 			</div>
 		<% end %>
-		<p>Already a member? <%= link_to "Sign in", signin_path %></p>
+		<div class="already_member">
+			<p>Already a member? <%= link_to "Sign in", signin_path %></p>
+		</div><!--.already_member-->
 	</div><!--#sign_up_form-->
 </section><!--#main-profile-->
