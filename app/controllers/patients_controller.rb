@@ -48,7 +48,8 @@ class PatientsController < ApplicationController
     @patient = Patient.new(params[:patient])
     if @patient.save
         sign_in @patient
-        redirect_to @patient, notice: "Welcome to Kurbi! Thank you for signing up."
+        flash[:success] = "Welcome to Kurbi! Click 'Edit Profile' to enter your profile information."
+        redirect_to @patient
         PatientMailer.registration_confirmation(@patient).deliver
     else
         @title = "Sign up"
