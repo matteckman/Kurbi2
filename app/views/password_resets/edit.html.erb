@@ -3,13 +3,13 @@
 	<%= form_for @patient, :url => password_reset_path(params[:id]) do |f| %>
 	  <%= render 'shared/error_messages', :object => f.object %>
 	  <div class="field">
-	    <%= f.label :password %>
+	    <%= f.label :password %><br/>
 	    <%= f.password_field :password %>
 	  </div>
 	  <div class="field">
-	    <%= f.label :password_confirmation %>
+	    <%= f.label :password_confirmation, "Confirmation" %><br/>
 	    <%= f.password_field :password_confirmation %>
 	  </div>
-	  <div class="actions"><%= f.submit "Update", :class => "button round" %></div>
+	  <div class="actions"><%= f.submit "Reset Password", :class => "button round" %></div>
 	<% end %>
-</section><!--#reset_password-->
+</section><!--#reset_password-->	
