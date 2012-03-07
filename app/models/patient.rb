@@ -1,6 +1,14 @@
 class Patient < ActiveRecord::Base
 	has_one :person, :dependent => :destroy
 	accepts_nested_attributes_for :person
+
+	has_and_belongs_to_many :diseaseprofile
+	has_many :dailyrecord
+	has_many :day, :through => :dailyrecord
+	has_many :patientsymptomsearch
+	has_many :search
+	has_many :patientdefinedsymptom
+	has_many :searchquery, :through => :search
 	
 	attr_accessor :password
 	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
