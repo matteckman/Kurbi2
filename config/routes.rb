@@ -1,4 +1,5 @@
 Kurbi2::Application.routes.draw do
+<<<<<<< HEAD
   resources :surveys
 
   get "sessions/new"
@@ -12,6 +13,13 @@ Kurbi2::Application.routes.draw do
   #end	
   #resources :members
   resources :sessions,   :only => [:new, :create, :destroy]
+=======
+    
+  get "password_resets/new"
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :password_resets
+>>>>>>> 25ce876606dd747660e6c292228e4c94cd17ec43
   
   root :to => 'pages#home'
   

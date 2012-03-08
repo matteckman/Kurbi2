@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  before_filter :authorize, :only => [:show, :edit, :update]
+  
   # GET /patients
   # GET /patients.json
   def index
@@ -14,8 +16,8 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-	@title = (@patient.first_name + @patient.last_name)
-	
+	@title = (@patient.first_name + " " + @patient.last_name)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @patient }
@@ -44,35 +46,26 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(params[:patient])
-
-    respond_to do |format|
-      if @patient.save
-      	#sign_in @patient
-        format.html { redirect_to @patient, notice: 'Hi there! Welcome to Kurbi!' }
-        format.json { render json: @patient, status: :created, location: @patient }
-      else
-      	@title = "Sign up"
-        format.html { render action: "new" }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
-      end
-    end
+    if @patient.save
+        sign_in @patient
+        redirect_to @patient, notice: "Welcome to Kurbi! Thank you for signing up."
+    else
+        @title = "Sign up"
+        render "new"
+    end 
   end
 
   # PUT /patients/1
   # PUT /patients/1.json
   def update
     @patient = Patient.find(params[:id])
-
-    respond_to do |format|
-      if @patient.update_attributes(params[:patient])
-        format.html { redirect_to @patient, notice: 'Your account settings have been updated.' }
-        format.json { head :no_content }
-      else
-      	@title = "Edit Account Settings"
-        format.html { render action: "edit" }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
-      end
-    end
+	if @patient.update_attributes(params[:patient])
+		flash[:success] = "Your account settings have been updated."
+		redirect_to @patient
+	else
+		@title = "Edit Account Settings"
+		render "edit"
+	end
   end
 
   # DELETE /patients/1
@@ -86,4 +79,7 @@ class PatientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+ 
 end
+

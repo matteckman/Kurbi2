@@ -110,7 +110,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt-ruby (~> 3.0.1)
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.1.1)
   jquery-rails
   mysql2

@@ -1,12 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  helper_method :current_member
+  include SessionsHelper
   
   private
-  
-  def current_member
-    @current_member ||= Member.find(session[:member_id]) if session[:member_id]
-  end
-
+  	def current_patient
+  		@current_patient ||= Patient.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+  	end
+  	
+  	helper_method :current_patient
+  	
+  	def authorize
+  		redirect_to signin_path, alert: "Please sign in to access this page." if 
+  			current_patient.nil?
+  	end    
 end

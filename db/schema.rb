@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120302192414) do
+=======
+ActiveRecord::Schema.define(:version => 20120306001817) do
+>>>>>>> 25ce876606dd747660e6c292228e4c94cd17ec43
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -87,8 +91,15 @@ ActiveRecord::Schema.define(:version => 20120302192414) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
+<<<<<<< HEAD
     t.string   "password_hash"
     t.string   "password_salt"
+=======
+    t.string   "password_digest"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+>>>>>>> 25ce876606dd747660e6c292228e4c94cd17ec43
   end
 
   add_index "patients", ["email"], :name => "index_patients_on_email", :unique => true
