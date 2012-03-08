@@ -16,6 +16,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
+    @person = @patient.person
 	@title = (@patient.first_name + " " + @patient.last_name)
 
     respond_to do |format|

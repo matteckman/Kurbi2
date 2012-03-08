@@ -1,45 +1,40 @@
 <%= form_for(@person) do |f| %>
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-      <% @person.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', :object => f.object %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.label :location, "Where are you currently located?" %><br />
+    <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :birthday, "What is your birthday?" %><br />
+    <%= f.date_select :birthday, :end_year => 1920, :start_year => 2000 %>
   </div>
   <div class="field">
-    <%= f.label :social_security %><br />
-    <%= f.text_field :social_security %>
+    <%= f.label :race, "What is your ethnicity?" %><br />
+    <%= f.text_field :race %>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.label :sex, "What is your sexual orientation?" %><br />
+    <%= f.text_field :sex %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :first_occurrence, "What year did you experience your first symptom?" %>
+    <br />
+    <%= f.select(:first_occurrence, 1920..2012) %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.label :year_diagnosed, "What year were you diagnosed?" %><br />
+    <%= f.select(:year_diagnosed, 1920..2012) %>
   </div>
   <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name %>
+    <%= f.label :doctor, "Who is your primary neurologist?" %><br />
+    <%= f.text_field :doctor %>
+  </div>
+  <div class="field">
+    <%= f.label :condition, "What primary type of MS do you have?" %><br />
+    <%= f.text_field :condition %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update", :class => "button round" %>
   </div>
 <% end %>

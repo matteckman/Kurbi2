@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306001817) do
+ActiveRecord::Schema.define(:version => 20120307170135) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(:version => 20120306001817) do
     t.text     "medications"
     t.integer  "patient_id"
   end
+
+  add_index "people", ["user_name"], :name => "index_people_on_user_name", :unique => true
 
   create_table "predefined_symptoms", :force => true do |t|
     t.string   "name"

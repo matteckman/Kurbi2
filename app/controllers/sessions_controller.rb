@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         else
       	  cookies[:auth_token] = patient.auth_token
       	end
-      	redirect_to patient, notice: "Logged in!"
+      	redirect_to patient
       else
       	flash.now[:error] = "Invalid email/password combination."
       	render "new"
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
       
   def destroy
   	cookies.delete(:auth_token)
-    redirect_to root_path, notice: "Logged out!"
+    redirect_to root_path
   end
 end
