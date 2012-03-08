@@ -25,10 +25,10 @@ class Patient < ActiveRecord::Base
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email,    :format => { :with => email_regex },
 					     :uniqueness => { :case_sensitive => false }
-	validates :password, :confirmation => true,
-	                     :length => { :within => 6..40 }
-	
-	before_create { generate_token(:auth_token) }                     
+	validates :password, :confirmation => true
+	                    	
+	before_create { generate_token(:auth_token) } 
+	before_create :build_default_profile                    
 	
 	def send_password_reset
 		generate_token(:password_reset_token)
@@ -41,6 +41,11 @@ class Patient < ActiveRecord::Base
 		begin
 			self[column] = SecureRandom.urlsafe_base64
 		end while Patient.exists?(column => self[column])
+	end
+	
+	def build_default_profile
+		person = build_person
+		true
 	end
 	
 end

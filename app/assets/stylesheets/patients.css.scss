@@ -32,6 +32,12 @@
 			&:active { color: #444; }
 		}
 	}
+	
+	.already_member p {
+		position: relative;
+		top: 50px;
+		right: 15px;
+	}
 }
 
 #main-profile {
@@ -68,7 +74,7 @@
 
 
 #sign_up_form {
-	margin:0 0 30px 25px;
+	margin:0 0 90px 25px;
 	
 	h2 {
 		padding-top: 20px;

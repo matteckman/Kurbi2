@@ -1,6 +1,5 @@
 Kurbi2::Application.routes.draw do
 <<<<<<< HEAD
-<<<<<<< HEAD
   resources :surveys
 
   get "sessions/new"
@@ -17,8 +16,6 @@ Kurbi2::Application.routes.draw do
 =======
     
   get "password_resets/new"
-=======
->>>>>>> 8296a4730efe1181e08f6270537ad5adf2e8e5c3
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets

@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   def new
+  	@title = "Reset Password"
   end
   
   def create
@@ -22,5 +23,4 @@ class PasswordResetsController < ApplicationController
       render :edit
     end
   end
-
 end

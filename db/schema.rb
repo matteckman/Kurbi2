@@ -12,10 +12,14 @@
 # It's strongly recommended to check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120302192414) do
 =======
 ActiveRecord::Schema.define(:version => 20120306001817) do
 >>>>>>> 25ce876606dd747660e6c292228e4c94cd17ec43
+=======
+ActiveRecord::Schema.define(:version => 20120307170135) do
+>>>>>>> 8296a4730efe1181e08f6270537ad5adf2e8e5c3
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -121,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20120306001817) do
     t.text     "medications"
     t.integer  "patient_id"
   end
+
+  add_index "people", ["user_name"], :name => "index_people_on_user_name", :unique => true
 
   create_table "predefined_symptoms", :force => true do |t|
     t.string   "name"

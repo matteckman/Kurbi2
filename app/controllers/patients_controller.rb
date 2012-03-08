@@ -16,6 +16,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
+    @person = @patient.person
 	@title = (@patient.first_name + " " + @patient.last_name)
 
     respond_to do |format|
@@ -48,7 +49,9 @@ class PatientsController < ApplicationController
     @patient = Patient.new(params[:patient])
     if @patient.save
         sign_in @patient
-        redirect_to @patient, notice: "Welcome to Kurbi! Thank you for signing up."
+        flash[:success] = "Welcome to Kurbi! Click 'Edit Profile' to enter your profile information."
+        redirect_to @patient
+        PatientMailer.registration_confirmation(@patient).deliver
     else
         @title = "Sign up"
         render "new"

@@ -3,5 +3,51 @@
 <section id="main-profile" class="mid-shadow">
 	<%= render 'shared/profile_nav' %>
 	
-
-</section>
+	<section id="profile-information">
+		<p>
+		  <b>Location:</b>
+		  <%= @person.location %>
+		</p>
+		
+		<p>
+		  <b>Birthday:</b>
+		  <%= @person.birthday %>
+		</p>
+		
+		<p>
+		  <b>Race:</b>
+		  <%= @person.race %>
+		</p>
+		
+		<p>
+		  <b>Sex:</b>
+		  <%= @person.sex %>
+		</p>
+		
+		<p>
+		  <b>Year of First Symptom:</b>
+		  <%= @person.first_occurrence %>
+		</p>
+		
+		<p>
+		  <b>Year Diagnosed:</b>
+		  <%= @person.year_diagnosed %>
+		</p>
+		
+		<p>
+		  <b>Primary Neurologist:</b>
+		  <%= @person.doctor %>
+		</p>
+		
+		<p>
+		  <b>Primary Condition:</b>
+		  <%= @person.condition %>
+		</p>
+		
+		<p>
+		  <b>Medications:</b>
+		  <%= @person.medications %>
+		</p>    
+		
+	</section><!--#profile-information-->
+</section><!--#main-profile-->
