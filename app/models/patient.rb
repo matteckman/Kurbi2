@@ -1,5 +1,4 @@
 class Patient < ActiveRecord::Base
-<<<<<<< HEAD
 	has_one :person, :dependent => :destroy
 	accepts_nested_attributes_for :person
 
@@ -10,9 +9,7 @@ class Patient < ActiveRecord::Base
 	has_many :search
 	has_many :patientdefinedsymptom
 	has_many :searchquery, :through => :search
-=======
 	has_secure_password
->>>>>>> 25ce876606dd747660e6c292228e4c94cd17ec43
 	
 	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
 	
