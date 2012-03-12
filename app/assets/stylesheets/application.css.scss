@@ -14,7 +14,7 @@ html, body, #wrap { height: auto; }
 #wrap { min-height: 100%; }
 
 #main { 
-	overflow: auto;
+	overflow-x: hidden;
 	padding-bottom: 90px;	
 	font-family: 'Museo300'; 
 }

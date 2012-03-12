@@ -32,7 +32,7 @@ Kurbi2::Application.routes.draw do
 
   resources :predefined_symptoms
 
-#  resources :people
+  resources :people
 
 #  resources :patient_symptom_searches
 

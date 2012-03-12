@@ -46,6 +46,7 @@
 	min-height: 499px;
 	height: 100%;
 	background: url(../images/main-bkgd.png) repeat;
+	 
 	
 	#profile-nav {
 		position:relative;
@@ -68,6 +69,49 @@
 			text-decoration: none;
 			&:hover { text-decoration: underline; }
 			&:active { color: #444; }
+		}
+	}
+	
+	#profile-information {
+		float: left;
+		margin:0 0 35px 0;
+		
+		p {
+			color: #fff;
+		}
+		
+		#profile-left {
+			position: relative;
+			float:left;
+			top: 50px;
+			left: 60px;
+			margin-right: 20px;
+			
+			p {
+				font-size: 25px;
+			}
+			
+			a, a:visited {
+				font-size: 12px;
+				color: #fff;
+				text-decoration: none;
+				&:hover { text-decoration: underline; }
+			}
+			
+			img {
+				margin:25px 0 0 0;
+			}
+		}
+		
+		#profile-right {
+			position: absolute;
+			left: 360px;
+			top:60px;
+					
+			p {
+				margin:0 0 20px 0;
+				font-size: 20px; 
+			}
 		}
 	}
 }

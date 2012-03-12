@@ -4,50 +4,63 @@
 	<%= render 'shared/profile_nav' %>
 	
 	<section id="profile-information">
-		<p>
-		  <b>Location:</b>
-		  <%= @person.location %>
-		</p>
+		<div id="profile-left">
+			<p>
+				<b><%= @patient.first_name + " " + @patient.last_name %></b> 
+				<%= link_to "[ edit ]", edit_person_path(@person) %>
+			</p>
+			
+			<div class="profile-image">
+				<%= profile_image %>
+			</div><!--.profile_image-->
+				<%= updates_icon %>
+		</div><!--#profile-left-->
 		
-		<p>
-		  <b>Birthday:</b>
-		  <%= @person.birthday %>
-		</p>
-		
-		<p>
-		  <b>Race:</b>
-		  <%= @person.race %>
-		</p>
-		
-		<p>
-		  <b>Sex:</b>
-		  <%= @person.sex %>
-		</p>
-		
-		<p>
-		  <b>Year of First Symptom:</b>
-		  <%= @person.first_occurrence %>
-		</p>
-		
-		<p>
-		  <b>Year Diagnosed:</b>
-		  <%= @person.year_diagnosed %>
-		</p>
-		
-		<p>
-		  <b>Primary Neurologist:</b>
-		  <%= @person.doctor %>
-		</p>
-		
-		<p>
-		  <b>Primary Condition:</b>
-		  <%= @person.condition %>
-		</p>
-		
-		<p>
-		  <b>Medications:</b>
-		  <%= @person.medications %>
-		</p>    
-		
+		<div id="profile-right">
+			<p>
+			  <b>Location:</b>
+			  <%= @person.location %>
+			</p>
+			
+			<p>
+			  <b>Birthday:</b>
+			  <%= @person.birthday %>
+			</p>
+			
+			<p>
+			  <b>Race:</b>
+			  <%= @person.race %>
+			</p>
+			
+			<p>
+			  <b>Sex:</b>
+			  <%= @person.sex %>
+			</p>
+			
+			<p>
+			  <b>Year of First Symptom:</b>
+			  <%= @person.first_occurrence %>
+			</p>
+			
+			<p>
+			  <b>Year Diagnosed:</b>
+			  <%= @person.year_diagnosed %>
+			</p>
+			
+			<p>
+			  <b>Primary Neurologist:</b>
+			  <%= @person.doctor %>
+			</p>
+			
+			<p>
+			  <b>Primary Condition:</b>
+			  <%= @person.condition %>
+			</p>
+			
+			<p>
+			  <b>Medications:</b>
+			  <%= @person.medications %>
+			</p>    
+		</div><!--#profile-right-->
 	</section><!--#profile-information-->
 </section><!--#main-profile-->

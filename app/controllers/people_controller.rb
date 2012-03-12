@@ -25,17 +25,6 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-#    @person = Person.new(params[:person])
-
-#    respond_to do |format|
-#      if @person.save
-#        format.html { redirect_to @person, notice: 'Person was successfully created.' }
-#        format.json { render json: @person, status: :created, location: @person }
-#      else
-#        format.html { render action: "new" }
-#        format.json { render json: @person.errors, status: :unprocessable_entity }
-#      end
-#    end
   end
 
   # PUT /people/1
@@ -57,13 +46,6 @@ class PeopleController < ApplicationController
 
   # DELETE /people/1
   # DELETE /people/1.json
-#  def destroy
-#    @person = Person.find(params[:id])
-#    @person.destroy
-
-#    respond_to do |format|
-#      format.html { redirect_to people_url }
-#      format.json { head :no_content }
-#    end
-#  end
+  def destroy
+  end
 end
