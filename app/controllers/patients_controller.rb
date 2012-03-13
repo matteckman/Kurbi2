@@ -40,6 +40,7 @@ class PatientsController < ApplicationController
   # GET /patients/1/edit
   def edit
     @patient = Patient.find(params[:id])
+    @person = @patient.person
     @title = "Edit Account Settings"
   end
 
