@@ -27,12 +27,16 @@
     <%= f.select(:year_diagnosed, 1920..2012) %>
   </div>
   <div class="field">
-    <%= f.label :doctor, "Who is your primary neurologist?" %><br />
-    <%= f.text_field :doctor %>
+    <%= f.label :primary_physician, "Who is your primary neurologist?" %><br />
+    <%= f.text_field :primary_physician %>
   </div>
   <div class="field">
     <%= f.label :condition, "What primary type of MS do you have?" %><br />
     <%= f.text_field :condition %>
+  </div>
+  <div class="field">
+    <%= f.label :medications, "What medications are your currently taking?" %><br />
+    <%= f.text_area :medications, :size => "60x12" %>
   </div>
   <div class="actions">
     <%= f.submit "Update", :class => "button round" %>

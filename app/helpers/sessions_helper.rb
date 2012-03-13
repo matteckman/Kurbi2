@@ -4,5 +4,4 @@ module SessionsHelper
 		current_patient = patient
 		@current_patient = patient
 	end
-
 end

@@ -31,12 +31,12 @@ class PeopleController < ApplicationController
   # PUT /people/1.json
   def update
     @person = Person.find(params[:id])
-    @patient = Patient.find(params[:id])
+    @patient = current_patient
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
         format.html { redirect_to @patient, notice: 'Your profile information has been updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @person.errors, status: :unprocessable_entity }

@@ -7,7 +7,7 @@
 		<div id="profile-left">
 			<p>
 				<b><%= @patient.first_name + " " + @patient.last_name %></b> 
-				<%= link_to "[ edit ]", edit_person_path(@person) %>
+				<%= link_to "[ edit ]", edit_patient_path(current_patient) %>
 			</p>
 			
 			<div class="profile-image">

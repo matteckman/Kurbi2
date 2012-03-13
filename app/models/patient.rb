@@ -12,10 +12,7 @@ class Patient < ActiveRecord::Base
 	has_secure_password
 	
 	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
-	
-	has_one :person, :dependent => :destroy
-	accepts_nested_attributes_for :person
-	
+		
 	validates :first_name, :presence => true, :length => { :maximum => 50 }
 	validates :last_name,  :presence => true, :length => { :maximum => 50 }
 	
