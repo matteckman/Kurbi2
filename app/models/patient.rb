@@ -3,12 +3,12 @@ class Patient < ActiveRecord::Base
 	accepts_nested_attributes_for :person
 
 	has_and_belongs_to_many :diseaseprofile
-	has_many :dailyrecord
+	has_many :daily_record
 	has_many :day, :through => :dailyrecord
-	has_many :patientsymptomsearch
+	has_many :patient_symptom_search
 	has_many :search
-	has_many :patientdefinedsymptom
-	has_many :searchquery, :through => :search
+	has_many :user_defined_symptom
+	has_many :search_query, :through => :search
 	has_secure_password
 	
 	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
