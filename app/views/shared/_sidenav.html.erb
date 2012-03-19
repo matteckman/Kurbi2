@@ -1,10 +1,10 @@
 <nav id="main-sidebar">
 	<ul class="side-nav-style">
-		<li class="<%= "current" if params[:controller] == "journals" %>">
-			<%= link_to "Journal", "#" %>
+		<li class="<%= "current" if params[:controller] == "surveys" %>">
+			<%= link_to "Journal", survey_path %>
 		</li>
-		<li class="<%= "current" if params[:controller] == "history" %>">
-			<%= link_to "History", "#" %>
+		<li class="<%= "current" if params[:controller] == "histories" %>">
+			<%= link_to "History", history_path %>
 		</li>
 		<li class="<%= "current" if params[:controller] == "patients" %>">
 			<%= link_to "Profile", @patient %>

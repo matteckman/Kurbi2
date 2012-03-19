@@ -1,4 +1,4 @@
 class Severity < ActiveRecord::Base
-	belongs_to :dailyrecord
-	belogns_to :predefinedsymptom
+	belongs_to :daily_record
+	belongs_to :predefined_symptom
 end

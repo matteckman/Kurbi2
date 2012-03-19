@@ -74,6 +74,30 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 	text-decoration: underline;
 }
 
+/*---------------PROFILE NAV--------------*/
+#profile-nav {
+	position:relative;
+	top: -20px;
+	
+	ul {
+		list-style: none;
+	}
+	
+	li {
+		display: inline;
+		padding-right: 3px;
+	}
+	
+	a, a:visited {
+		padding:5px 10px 5px 10px;
+		font-size: 12px;
+		color: #444;
+		background-color: #C1C1C1;
+		text-decoration: none;
+		&:hover { text-decoration: underline; }
+		&:active { color: #444; }
+	}
+}
 
 /*---------------ERROR MESSAGES--------------*/
 .field_with_errors {

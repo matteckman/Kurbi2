@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         else
       	  cookies[:auth_token] = patient.auth_token
       	end
-      	redirect_to patient
+      	 redirect_to patient
       else
       	flash.now[:error] = "Invalid email/password combination."
       	render "new"

@@ -1,6 +1,8 @@
 Kurbi2::Application.routes.draw do
-  resources :surveys
+  resources :histories, :only => [:show]
 
+  resources :surveys, :only => [:show]
+	
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
   

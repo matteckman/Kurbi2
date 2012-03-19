@@ -2,9 +2,9 @@ class Patient < ActiveRecord::Base
 	has_one :person, :dependent => :destroy
 	accepts_nested_attributes_for :person
 
-	has_and_belongs_to_many :diseaseprofile
+	has_and_belongs_to_many :disease_profile
 	has_many :daily_record
-	has_many :day, :through => :dailyrecord
+	has_many :day, :through => :daily_record
 	has_many :patient_symptom_search
 	has_many :search
 	has_many :user_defined_symptom
