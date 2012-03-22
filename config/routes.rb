@@ -1,8 +1,9 @@
 Kurbi2::Application.routes.draw do
   resources :histories, :only => [:show]
 
-  resources :surveys, :only => [:show]
-	
+  resources :surveys 
+  match '/surveys/:patient_id/more', :to => 'surveys#more'
+   	
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
   

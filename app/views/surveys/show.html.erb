@@ -1,6 +1,74 @@
+<script>
+  $(document).ready(function() {
+    $(".slider").slider({min: 0,max: 5,step: .10});
+    $(".slider").bind( "slidechange", function(event, ui) {
+  		$(this).siblings().first().text(ui.value);
+	});
+  });
+</script>
+
+<!--Rendering the shared profile nav that contains 'watch tutorial', 'settings', 'edit profile', 'share with doctor'-->
 <%= render 'shared/sidenav' %>
 
 <section id="survey-section" class="mid-shadow">
 	<%= render 'shared/profile_nav' %>
-
+	
+	<div class="auto-update-btn"><%= link_to auto_update_btn, '#' %></div><!--.auto-update-btn-->
+	<h1>Personal<br/> Health Journal</h1>
+	<hr class="round">
+	
+	<section id="short_path_survey">
+		<p class="symptom_name">Movement and sound phosphenes<br/><a href="" class="get_more_button">Get Info</a></p>
+		<div class="slider_container"><div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">4</span></div></div>
+		<p class="symptom_description"><i>Flashing lights when moving eyes or in response to a sudden noise</i></p>
+		
+		<p class="symptom_name">Paresis, Monoparesis, Paraparesis, Hemiparesis, Quadraparesis<br/><a href="" class="get_more_button">Get Info</a></p>
+		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">4</span></div>
+		<p class="symptom_description"><i>Muscle weakness - partial or mild paralysis</i></p>
+		
+		<p class="symptom_name">Plegia, Paraplegia, Hemiplegia, Tetraplegia, Quadraplegia<br/><a href="" class="get_more_button">Get Info</a></p>
+		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">2</span></div>
+		<p class="symptom_description"><i>Paralysis - Total or near total loss of muscle strength</i></p>
+		
+		<p class="symptom_name">Spasticity<br/><a href="" class="get_more_button">Get Info</a></p>
+		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">5</span></div>
+		<p class="symptom_description"><i>Loss of muscle tone causing stiffness, pain and restricting free movement of affected limbs</i></p>
+		
+		<p class="symptom_name">Muscle Atrophy<br/><a href="" class="get_more_button">Get Info</a></p>
+		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">5</span></div>
+		<p class="symptom_description"><i>Wasting of muscles due to lack of use</i></p>
+		
+		<p class="symptom_name">Spasms, Cramps<br/><a href="" class="get_more_button">Get Info</a></p>
+		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">1</span></div>
+		
+		<div class="show_more_button"><%= link_to show_more_button, 'http://localhost:3000/surveys/20/more' %></div>
+	</section><!--#short_path_survey-->
 </section><!--#survey-section-->
+
+<table id="lower-survey-section">
+	  <tbody>
+	    <tr>
+	      <td>
+		      <div class="add-symptom-btn">
+		      	<h4>Add New Symptoms</h4>
+		      	<%= link_to symptom_plus, '#' %>
+		      </div><!--.add-symptom-btn-->
+	      </td>
+	      	
+	      <td>
+	      	  <div class="delete-symptom-btn">
+	      		<h4>Delete Symptoms</h4>
+	      		<%= link_to symptom_minus, '#' %>
+	      	  </div><!--.delete-symptom-btn-->
+	      </td>
+	      
+	      <td>
+	      	<div class="symptom-search">
+	      		<h4>Search Symptoms & Treatments</h4>
+	      		<%= symptom_search %>
+	      	</div><!--.symptom-search-->
+	      </td>
+	    </tr>
+	    
+	  </tbody>
+</table><!--#lower-survey-section-->
