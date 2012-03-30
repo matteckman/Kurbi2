@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', :object => f.object %>
 
   <div class="field">
-    <%= f.label :location, "Where are you currently located?" %><br />
+    <%= f.label :location, "Where are you currently located? (city, state)" %><br />
     <%= f.text_field :location %>
   </div>
   <div class="field">
@@ -11,11 +11,11 @@
   </div>
   <div class="field">
     <%= f.label :race, "What is your ethnicity?" %><br />
-    <%= f.text_field :race %>
+    <%= f.select :race, ['American Indian or Alaska Native', 'Asian', 'African American', 'Hispanic or Latino', 'Native Hawaiian or Other Pacific Islander', 'White', 'Other'] %>
   </div>
   <div class="field">
     <%= f.label :sex, "What is your sexual orientation?" %><br />
-    <%= f.text_field :sex %>
+    <%= f.select :sex, ['Male', 'Female'] %>
   </div>
   <div class="field">
     <%= f.label :first_occurrence, "What year did you experience your first symptom?" %>
@@ -32,12 +32,17 @@
   </div>
   <div class="field">
     <%= f.label :condition, "What primary type of MS do you have?" %><br />
-    <%= f.text_field :condition %>
+    <%= f.select :condition, ['Benign Multiple Sclerosis (MS)', 'Relapsing-Remitting Multiple Sclerosis (RRMS)', 'Secondary Progressive Multiple Sclerosis (SPMS)', 'Primary Progressive Multiple Sclerosis (PPMS)', 'Progressive Relapsing Multiple Sclerosis (PRMS)', 'Malignant Multiple Sclerosis (Marburg Variant)'] %>
   </div>
   <div class="field">
-    <%= f.label :medications, "What medications are your currently taking?" %><br />
-    <%= f.text_area :medications, :size => "60x12" %>
+    <%= f.label :medications, "What MS specific medications are you currently taking?" %><br />
+    <%= f.select :medications, ['Avonex', 'Betaseron', 'Extavia', 'Rebif', 'Copaxone', 'Gilenya', 'Tysabri', 'Novantrone', 'Other'] %>
   </div>
+  <div class="field">
+    <%= f.label :other_medications, "What other medications are you currently taking?" %><br />
+    <%= f.text_field :other_medications %>
+  </div>
+  
   <div class="actions">
     <%= f.submit "Update", :class => "button round" %>
   </div>

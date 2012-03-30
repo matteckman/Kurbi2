@@ -1,7 +1,7 @@
 <!--This is the shared helper for error messages for all forms in the application-->
 
 <% if object.errors.any? %>
-  <div id="error_explanation">
+  <section id="error_explanation">
     <h2><%= pluralize(object.errors.count, "error") %> 
         prohibited this user from being saved:</h2>
     <p>There were problems with the following fields:</p>
@@ -10,5 +10,5 @@
       <li><%= msg %></li>
     <% end %>
     </ul>
-  </div>
+  </section><!--#error_explanation-->
 <% end %>
