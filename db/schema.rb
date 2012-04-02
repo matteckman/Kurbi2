@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329183728) do
+ActiveRecord::Schema.define(:version => 20120402210124) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -31,12 +31,27 @@ ActiveRecord::Schema.define(:version => 20120329183728) do
     t.datetime "updated_at"
   end
 
-  create_table "daily_records", :force => true do |t|
+  create_table "daily_record_details", :force => true do |t|
+    t.integer  "rank"
+    t.integer  "predefined_symptom_id"
+    t.integer  "daily_record_id"
     t.date     "date"
-    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "daily_record_details", ["daily_record_id"], :name => "index_daily_record_details_on_daily_record_id"
+  add_index "daily_record_details", ["predefined_symptom_id"], :name => "index_daily_record_details_on_predefined_symptom_id"
+
+  create_table "daily_records", :force => true do |t|
+    t.date     "date"
+    t.text     "note"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "daily_records", ["patient_id"], :name => "index_daily_records_on_patient_id"
 
   create_table "days", :force => true do |t|
     t.date     "date"
@@ -120,14 +135,18 @@ ActiveRecord::Schema.define(:version => 20120329183728) do
     t.string   "primary_physician"
   end
 
+  add_index "people", ["patient_id"], :name => "index_people_on_patient_id"
   add_index "people", ["user_name"], :name => "index_people_on_user_name", :unique => true
 
   create_table "predefined_symptoms", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "predefined_symptoms", ["category_id"], :name => "index_predefined_symptoms_on_category_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -147,20 +166,17 @@ ActiveRecord::Schema.define(:version => 20120329183728) do
     t.datetime "updated_at"
   end
 
-  create_table "severities", :force => true do |t|
-    t.integer  "rank"
-    t.date     "date"
+  create_table "surveys", :force => true do |t|
+    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "surveys", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "surveys", ["patient_id"], :name => "index_surveys_on_patient_id"
 
   create_table "symptom_categories", :force => true do |t|
     t.string   "category"
+    t.text     "category_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

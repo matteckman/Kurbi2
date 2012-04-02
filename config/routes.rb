@@ -1,4 +1,6 @@
 Kurbi2::Application.routes.draw do
+  resources :daily_record_details
+
   resources :histories, :only => [:show]
 
   resources :surveys 
