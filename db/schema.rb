@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402210124) do
+ActiveRecord::Schema.define(:version => 20120403202120) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(:version => 20120402210124) do
     t.string   "year_diagnosed"
     t.string   "condition"
     t.text     "medications"
-    t.text     "other_medications"
+    t.string   "other_medications"
     t.integer  "patient_id"
     t.string   "primary_physician"
   end

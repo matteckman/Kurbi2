@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-	has_one :person, :dependent => :destroy
+	has_one :person, dependent: :destroy
 	accepts_nested_attributes_for :person
 
 	has_and_belongs_to_many :disease_profile
@@ -10,6 +10,7 @@ class Patient < ActiveRecord::Base
 	has_many :user_defined_symptom
 	has_many :search_query, :through => :search
 	has_secure_password
+	
 	
 	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
 		
@@ -23,6 +24,10 @@ class Patient < ActiveRecord::Base
 	                    	
 	before_create { generate_token(:auth_token) } 
 	before_create :build_default_profile                    
+	
+	def to_param
+		"#{id} #{first_name + " " + last_name}".parameterize
+	end
 	
 	def send_password_reset
 		generate_token(:password_reset_token)

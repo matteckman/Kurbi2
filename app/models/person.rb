@@ -8,5 +8,10 @@ class Person < ActiveRecord::Base
 	has_and_belongs_to_many :role
 	
 	attr_accessible :birthday, :user_name, :location, :race, :sex, :bio, 
-	:first_occurrence, :year_diagnosed, :condition, :primary_physician, :medications
+	:first_occurrence, :year_diagnosed, :condition, :primary_physician, :medications, :other_medications
+	
+	def to_param
+		"#{id} #{patient_id} #{patient.first_name + " " + patient.last_name}".parameterize
+	end
+	
 end

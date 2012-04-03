@@ -15,6 +15,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# gem 'friendly_id', '~> 4.0.4'
+
 # jQuery Stuff
 gem 'jquery-rails'
 gem "jquery-ui-themes", "~> 0.0.4"

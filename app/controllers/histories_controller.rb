@@ -9,10 +9,6 @@ class HistoriesController < ApplicationController
   # GET /histories/1
   # GET /histories/1.json
   def show
-  	@patient = Patient.find(params[:id])
-  	@person = @patient.person
-  	@title = (@patient.first_name + " " + @patient.last_name)
-  	render 'show'
   end
 
   # GET /histories/new

@@ -1,13 +1,4 @@
 Kurbi2::Application.routes.draw do
-  resources :daily_record_details
-
-  resources :histories, :only => [:show]
-
-  resources :surveys 
-  match '/surveys/:patient_id/more', :to => 'surveys#more'
-   	
-  resources :sessions, :only => [:new, :create, :destroy]
-  resources :password_resets
   
   root :to => 'pages#home'
   
@@ -23,6 +14,16 @@ Kurbi2::Application.routes.draw do
 
   resources :user_defined_symptoms
 
+  resources :daily_record_details
+  
+  resources :histories, :only => [:show]
+  
+  resources :surveys 
+  match '/surveys/:patient_id/more', :to => 'surveys#more'
+     	
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :password_resets
+    
 #  resources :system_errors
 
   resources :symptom_categories
