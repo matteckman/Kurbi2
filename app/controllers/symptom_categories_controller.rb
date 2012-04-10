@@ -3,6 +3,7 @@ class SymptomCategoriesController < ApplicationController
   # GET /symptom_categories.json
   def index
     @symptom_categories = SymptomCategory.all
+    # @symptoms = @symptom_categories.predefinedsymptom.all
 
     respond_to do |format|
       format.html # index.html.erb

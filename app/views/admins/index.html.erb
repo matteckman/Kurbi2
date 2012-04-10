@@ -1,0 +1,32 @@
+<h1>Admin</h1>
+
+<p><%= link_to "Admin Home", admin_path %></p>
+
+<table id="admin_table">
+  <!-- ROW 1 -->
+  <tr>
+    <th>
+      <h3>Symptom Categories</h3>
+      <p>Number of Categories: <%= @categories.count %></p>
+      <p><%= link_to "All Symptom Categories", admin_list_categories_path  %></p>
+    </th>
+    <th>
+      <h3>Symptoms</h3>
+      <p>Number of Symptoms: <%= @symptoms.count %></p>
+      <p><%= link_to "All Symptoms", admin_list_symptoms_path %></p>
+    </th>
+  </tr>  
+  <!-- ROW 2 -->
+  <tr>
+    <th>
+      <h3>Users</h3>
+      <p>Number of Users: <%= @users.count %></p>
+      <p><%= link_to "All Users", patients_path %></p>
+    </th>
+    <th>
+      <h3>All Daily Records</h3>
+      <p>Number: <%= @dailyrecords.count %></p>
+      <p>--</p>
+    </th>
+  </tr>
+</table>

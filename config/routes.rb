@@ -9,8 +9,10 @@ Kurbi2::Application.routes.draw do
   match '/member/signin',  :to => 'sessions#new',      :as => 'signin'
   match '/member/signout', :to => 'sessions#destroy',  :as => 'signout'
 
-  match '/admin/symptom_categories/index', :to => 'symptom_categories#index'
-  match '/admin/symptom_categories/new', :to => 'symptom_categories#new'
+  match '/admin', :to => 'admins#index', :as => 'admin'
+  match '/admin/symptom_categories/index', :to => 'symptom_categories#index', :as => 'admin_list_categories'
+  match '/admin/symptom_categories/new', :to => 'symptom_categories#new', :as => 'admin_new_categories'
+  match '/admin/predefined_symptoms/index', :to => 'predefined_symptoms#index', :as => 'admin_list_symptoms'
 
   resources :user_defined_symptoms
 

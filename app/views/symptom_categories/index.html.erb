@@ -6,11 +6,13 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @symptom_categories.each do |symptom_category| %>
   <tr>
     <td><%= symptom_category.category %></td>
+    <td><%= link_to 'Add Symptom', new_predefined_symptom_path(symptom_category) %></td>
     <td><%= link_to 'Show', symptom_category %></td>
     <td><%= link_to 'Edit', edit_symptom_category_path(symptom_category) %></td>
     <td><%= link_to 'Destroy', symptom_category, confirm: 'Are you sure?', method: :delete %></td>
