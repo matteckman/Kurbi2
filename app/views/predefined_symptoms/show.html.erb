@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1>/Predefined Symptom</h1>
 
 <p>
-  <b>Name:</b>
+  <b>Name</b><br>
   <%= @predefined_symptom.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Description</b><br>
   <%= @predefined_symptom.description %>
 </p>
 
+<p>
+  <b>Symptom category</b><br>
+  <%= @predefined_symptom.symptom_category %>
+</p>
 
-<%= link_to 'Edit', edit_predefined_symptom_path(@predefined_symptom) %> |
-<%= link_to 'Back', predefined_symptoms_path %>
+<div class="form-actions">
+  <%= link_to 'Back', predefined_symptoms_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_predefined_symptom_path(@predefined_symptom), :class => 'btn' %>
+  <%= link_to 'Delete', predefined_symptom_path(@predefined_symptom), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

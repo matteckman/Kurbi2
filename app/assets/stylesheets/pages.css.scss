@@ -194,6 +194,9 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 	}
 	
 	textarea.textarea {
+		width:300px;
+		max-width: 350px;
+		height: 200px;
 		font-size: 12px;
 		font-style: italic;
 		color: #333;

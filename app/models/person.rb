@@ -11,7 +11,7 @@ class Person < ActiveRecord::Base
 	:first_occurrence, :year_diagnosed, :condition, :primary_physician, :medications, :other_medications
 	
 	def to_param
-		"#{id} #{patient_id} #{patient.first_name + " " + patient.last_name}".parameterize
+		"#{id} #{patient.first_name + " " + patient.last_name}".parameterize
 	end
 	
 end

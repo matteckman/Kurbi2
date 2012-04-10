@@ -11,11 +11,11 @@
 /*---------------------MAIN---------------*/
 * { margin: 0; padding: 0; }
 
-html, body, #wrap { height: auto; }
+html, body { height: 100%; margin: 0; }
 
-#wrap { min-height: 100%; }
+#wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -200px; }
 
-#main { 
+#container { 
 	overflow-x: hidden;
 	padding-bottom: 90px;	
 	font-family: 'Museo300'; 
@@ -159,10 +159,9 @@ header {
 	background: url(/images/feedback-btn-hover.png);
 }
 /*------------------FOOTER------------------*/
+#push { height: 200px; }
+ 
 footer {
-	position: absolute;
-	bottom: 0;
-	left: 0;
 	height: 200px;
 	background: #279958;
 	clear: both;

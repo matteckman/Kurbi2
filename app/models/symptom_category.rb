@@ -1,3 +1,3 @@
 class SymptomCategory < ActiveRecord::Base
-	has_many :predefined_symptom
+	belongs_to :predefined_symptom
 end

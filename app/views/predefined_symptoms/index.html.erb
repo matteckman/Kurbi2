@@ -1,25 +1,26 @@
-<h1>Listing predefined_symptoms</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @predefined_symptoms.each do |predefined_symptom| %>
-  <tr>
-    <td><%= predefined_symptom.name %></td>
-    <td><%= predefined_symptom.description %></td>
-    <td><%= link_to 'Show', predefined_symptom %></td>
-    <td><%= link_to 'Edit', edit_predefined_symptom_path(predefined_symptom) %></td>
-    <td><%= link_to 'Destroy', predefined_symptom, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Predefined Symptoms</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @predefined_symptoms.each do |predefined_symptom| %>
+      <tr>
+        <td><%= predefined_symptom.id %></td>
+        <td><%= link_to predefined_symptom.name, predefined_symptom_path(predefined_symptom) %></td>
+        <td><%= predefined_symptom.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_predefined_symptom_path(predefined_symptom), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', predefined_symptom_path(predefined_symptom), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Predefined symptom', new_predefined_symptom_path %>
+<%= link_to 'New', new_predefined_symptom_path, :class => 'btn btn-primary' %>

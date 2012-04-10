@@ -1,25 +1,14 @@
-<%= form_for(@predefined_symptom) do |f| %>
-  <% if @predefined_symptom.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@predefined_symptom.errors.count, "error") %> prohibited this predefined_symptom from being saved:</h2>
+<%= simple_form_for @predefined_symptom, :html => { :class => 'form-vertical' } do |f| %>
+  <fieldset>
+    <legend>Add New Predefined Symptom</legend>
 
-      <ul>
-      <% @predefined_symptom.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.input :name, :label => 'Symptom Name' %>
+    <%= f.input :symptom_category, :label => 'Symptom Category', :collection => ['Visual', 'Motor', 'Sensory', 'Coordination & Balance', 'Bowel, Bladder, and Sexual', 'Cognitive', 'Other'] %>
+    <%= f.input :description, :label => 'Symptom Description', :as => :text, :input_html => 
+    																	   { :rows => 5 }  %>
+    
+    
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', predefined_symptoms_path, :class => 'btn' %>
+  </fieldset>
 <% end %>

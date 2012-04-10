@@ -46,16 +46,33 @@ ul.side-nav-style li { border-bottom: 5px solid #fff; }
 /*-----------------FORM FOR-------------------*/
 .field {
 	margin-top: 10px;
+	font-family: 'Museo300';
 	font-size: 16px;
 	color: #333;
+	
+	label {
+		font-size: 18px;
+		margin-bottom: -10px;
+	}
 	
 	input {
 		width: 200px;
 		height: 30px;
 		padding-left: 5px;	
-		font-family: 'Museo300';
 		font-size: 14px;
 		border:  1px solid #2D445B;
+	}
+	
+	.textarea {
+		width: 300px;
+		max-width: 300px;
+		height: 120px;
+		padding-left: 5px;	
+		font-size: 14px;
+		border:  1px solid #2D445B;
+		font-family: 'Museo300';
+		font-size: 14px;
+		color: #333;
 	}
 }
 

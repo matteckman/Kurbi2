@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-	has_one :person, dependent: :destroy
+	has_one :person, :dependent => :destroy
 	accepts_nested_attributes_for :person
 
 	has_and_belongs_to_many :disease_profile
