@@ -25,7 +25,7 @@ class PredefinedSymptomsController < ApplicationController
   # GET /predefined_symptoms/new.json
   def new
     @predefined_symptom = PredefinedSymptom.new
-
+    @category = params('id')
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @predefined_symptom }
