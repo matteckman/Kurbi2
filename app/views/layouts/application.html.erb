@@ -13,7 +13,7 @@
 <body>
 	<div id="wrap">
 		<%= render 'layouts/header' %>
-		<div id="container">
+		<div class="container">
 			<% flash.each do |name, msg| %>
 			  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 			    <a class="close" data-dismiss="alert">×</a>
@@ -21,11 +21,10 @@
 			  </div>
 			<% end %>
 			<%= yield %>
-			<div id="feedback"><a href="#"><img src="/images/feedback-btn.png"</a>
-			</div><!--#feedback-->
-		</div><!--#container-->
-		<div id="push"></div>
+			<!--<div id="feedback"><a href="#"><img src="/images/feedback-btn.png"</a>
+			</div><!--#feedback--*>-->
+		<%= render 'layouts/footer' %>
+		</div><!--#container-->	
 	</div><!--#wrap-->
-	<%= render 'layouts/footer' %>
 </body>
 </html>

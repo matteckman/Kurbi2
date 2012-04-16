@@ -42,4 +42,16 @@ module PagesHelper
 	def home_image
 		image_tag("main-image.png")
 	end
+	
+	def img_symptom_tracking
+		image_tag("Kurbi_Journal.png")
+	end
+	
+	def img_symptom_charting
+		image_tag("Kurbi_Report.png")
+	end
+	
+	def img_symptom_sharing
+		image_tag("Patients_Report.png")
+	end
 end

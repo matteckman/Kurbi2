@@ -1,11 +1,38 @@
 <!--This is the about page to give a brief description & to show the members of our team-->
-<section id="about-section">
+<section class="hero-unit">
 	<h2>About Kurbi</h2>
-	<div id="about-text">
-	<p>Symptom management and physical activity are two of the hottest topics in the Multiple Sclerosis world, and Kurbi was created to help people living with the condition to more easily achieve both.</p>
-	<p>If you are living with the condition or know someone that is, you are most likely familiar with the struggle to communicate how MS is affecting you and/or your loved one. Kurbi is here to let you know you are not alone, and that together, we can help each other, care-providers, and researchers understand more about MS than ever before possible.</p>
-	<p>Up until now, the daily experiences of how MS affects people outside of clinical trials has been a mystery. We developed Kurbi with the belief that if people could easily tell us what they were experiencing we would inevitably find important, world changing answers about MS in the data.</p>
-	</div><!--#about-text-->
+	<div class="row-fluid">
+		<p>Symptom management and physical activity are two of the hottest topics in the Multiple Sclerosis world, and Kurbi was created to help people living with the condition to more easily achieve both.</p>
+		<p>If you are living with the condition or know someone that is, you are most likely familiar with the struggle to communicate how MS is affecting you and/or your loved one. Kurbi is here to let you know you are not alone, and that together, we can help each other, care-providers, and researchers understand more about MS than ever before possible.</p>
+		<p>Up until now, the daily experiences of how MS affects people outside of clinical trials has been a mystery. We developed Kurbi with the belief that if people could easily tell us what they were experiencing we would inevitably find important, world changing answers about MS in the data.</p>
+	</div><!--/ .row-fluid-->
+</section><!--/ .hero-unit-->	
 	
-	<%= render 'pages/team' %>
-</section>
+<section id="team_info">
+	<h2>Meet Our Team</h2>
+	<div class="row-fluid">
+		<div class="span6">		
+			<%= link_to wes_pic, 'http://twitter.com/wes_garnett', :target => '_blank' %>
+			<h3>Wesley Garnett, Jr.</h3>
+			<p>Co-founder<br/>Visionary / Business Development<br/><%= link_to "@wes_garnett", 'http://twitter.com/wes_garnett', :target => '_blank' %></p><br/>
+		</div>
+			      			      
+		<div class="span6">	      
+			<%= link_to steve_pic, 'http://twitter.com/steve_roettger', :target => '_blank' %>
+			<h3>Steve Roettger</h3>
+			<p>Co-founder<br/>Operations / Developer<br/><%= link_to "@steve_roettger", 'http://twitter.com/steve_roettger', :target => '_blank' %></p><br/>
+		</div>
+			     
+	<div class="row-fluid">
+		<div class="span6">	
+			<%= link_to matt_pic, 'http://twitter.com', :target => '_blank' %>
+			<h3>Matt Eckman</h3>
+			<p>Co-founder<br/>Lead Developer<br/><%= link_to "@matt_eckman", 'http://twitter.com/', :target => '_blank' %></p><br/>
+		</div>
+			      
+		<div class="span6">      
+			<%= link_to david_pic, 'http://twitter.com/davidclizbe', :target => '_blank' %>
+			<h3>David Clizbe, M.S.</h3>
+			 <p>Co-founder<br/>Engineer / Researcher<br/><%= link_to "@davidclizbe", 'http://twitter.com/davidclizbe', :target => '_blank' %></p><br/>
+		</div>
+</section><!--/ #team_info-->

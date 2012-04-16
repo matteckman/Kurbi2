@@ -4,15 +4,233 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
 $baseFontSize: 14px;
 $baseFontFamily: 'Museo300';
-
+$navbarBackground: #253349;
+$navbarBackgroundHighlight: #253349;
+$navbarLinkColor: #fff;
+$btnSuccessBackground: #2EB568;
 
 @import "bootstrap";
 
-body { }
+body { padding:60px 0 40px 0; }
 
 @import "bootstrap-responsive";
+/*----------------------------------------------LAYOUT-------------------------------------------------*/
 
-fieldset {
-	margin:20px 0 0 40px;
+/*---------------HEADER-NAV---------------*/
+.inner-navbar {
+	padding-left:  20px;
+	padding-right: 20px;
+	@include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
 }
+
+ul.nav.actions li  { 
+	margin:10px 0 0 0;
+}
+
+ul.nav.actions li a:hover {
+	background: $btnSuccessBackgroundHighlight;
+}
+	
+ul.nav.pages li a {
+	margin:20px 10px 0 0;
+}
+
+ul.nav.pages li a:hover {
+	background: #fff;
+	color: #5994C8;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+/*---------HERO-UNIT(MAIN BODY)---------*/
+.hero-unit {
+  margin:30px 0 30px 0;
+  padding-top: 25px;
+  @include border-radius(6px);
+  
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 1;
+    color: #253349;
+    letter-spacing: -1px;
+  }
+  
+  p {
+  	float: left;
+  	margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: $baseLineHeight * 1.5;
+    color: #444;
+  }
+  
+  .sign-up-btn-home {
+  	text-align: center;
+  }
+}
+
+/*---------------SPAN-STYLES----------------*/
+.span1 { }
+.span2 { }
+.span3 { }
+.span4 { }
+.span5 { }
+.span6 { }
+.span7 { }
+.span8 { }
+.span9 { }
+.span10 { }
+.span11 { }
+.span12 { }
+
+/*------------------FOOTER------------------*/
+hr.footer-line { 
+	height: 1px;
+	color: #253349;
+	background-color: #253349; 
+}
+ 
+#footer-nav {
+	text-align: center;
+	font-size: 13px;
+	
+		
+	ul {
+		liststyle: none;
+	}
+		
+	li {
+		display: inline;
+		padding-right: 5px;
+	}
+		
+	a, a:visited {
+		color: #aaa;
+		&:hover { color: #253349; }
+		&:active { color: #253349; }
+	}
+}
+
+#copyright {
+	p {
+		color: #aaa;
+		font-size: 13px;
+		text-align: center;
+	}
+}
+	
+#sm-icons {
+	text-align: center;
+		
+	li {
+		display: inline;
+		padding-right: 5px;
+	}
+}		
+
+/*-----------------------------------------------PAGES---------------------------------------------------*/
+
+/*-----------------HOME-------------------*/
+.home-info {
+	margin-bottom:30px;
+	text-align: center;
+	
+	p {
+		margin-top: 10px;
+	}
+	
+	img {
+		border: 1px solid #ccc;
+	}
+}
+
+/*-----------------ABOUT-------------------*/
+#team_info {
+	font-size: 14px; 
+	
+	h2 {
+		margin-bottom: 15px; 	
+	}
+	
+	img {
+		float: left;
+		margin:0 15px 15px 0;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		border:2px solid #aaa;
+	}
+		
+	h3 {
+		color: #253349;
+		font-weight: lighter;
+		text-decoration: underline;
+	}	
+}
+
+/*-----------------CONTACT-------------------*/
+#contact-section {
+	margin:30px auto;
+	
+	p {
+		margin-top: 20px;
+	}
+}
+
+#form3 {
+	margin-top:20px; 
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	li {
+		margin:15px 0 0 0;
+	}
+	
+	label {
+		font-weight: lighter;
+	}
+	
+	input.text, input.search, input.file, select.select {
+		font-size: 12px;
+		font-style: italic;
+		color: #333;
+		width: 200px;
+		height: 25px;
+		border: 2px solid #ccc;
+	}
+	
+	textarea.textarea {
+		width:300px;
+		max-width: 350px;
+		height: 200px;
+		font-size: 12px;
+		font-style: italic;
+		color: #333;
+		border: 2px solid #ccc;
+		
+	}
+	
+	.hide {
+		display: none;
+	}
+	
+}
+
+/*------------------------------------------------MISC----------------------------------------------------*/
+
+/*----------------BUTTONS----------------*/
+.btn-xlarge {
+		padding: 15px 80px;
+		font-size: $baseFontSize + 2px;
+		line-height: normal;
+		@include border-radius(5px);
+}
+
+
 

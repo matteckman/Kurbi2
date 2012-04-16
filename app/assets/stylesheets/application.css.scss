@@ -8,31 +8,26 @@
 
 @import "jquery-ui/kurbi-theme/jquery-ui-1.8.18.custom.css.scss";
 
-/*---------------------MAIN---------------*/
+/*---------------------MAIN----------------*/
 * { margin: 0; padding: 0; }
 
 html, body { height: 100%; margin: 0; }
 
 #wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -200px; }
 
-#container { 
-	overflow-x: hidden;
-	padding-bottom: 90px;	
-	font-family: 'Museo300'; 
-}
+
 
 /*------------------TYPE-------------------*/
 h1 {
 	font-family: 'Museo100';
 	font-size: 32px;
-	color: #253E57;
+	color: #253349;
 }
 
 h2 {
 	font-family: 'Museo300';
-	font-size:24px;
-	color: #253E57;
-	text-decoration: underline;
+	font-size:20px;
+	color: #253349;
 }
 
 h3 {
@@ -116,33 +111,6 @@ a {
 
 }
 
-/*------------------FLASH-------------------*/
-.flash {
-	margin:20px 0 0 20px;
-	padding: 10px;
-	width: 50%;
-	height: 20px;
-	background: #EAEBED;
-	border: 2px solid #2D445B;
-}
-/*-----------------HEADER------------------*/
-header {
-	width: 100%;
-	height: 90px;
-	background: url(../images/kurbi-header-bkgd.png) repeat-x;
-	
-	img {
-		margin:25px 0 0 50px;
-		border: none;
-	}
-		
-	nav {
-		float:right;
-		margin:5px 50px 0 0;
-		background: transparent;
-	}
-}
-
 /*-----------------FEEDBACK-----------------*/
 #feedback {
 	float: right;
@@ -157,53 +125,6 @@ header {
 	width: 50px;
 	height: 90px;
 	background: url(/images/feedback-btn-hover.png);
-}
-/*------------------FOOTER------------------*/
-#push { height: 200px; }
- 
-footer {
-	height: 200px;
-	background: #279958;
-	clear: both;
-}
-
-#footer-bar {
-	position: relative;
-	top: 160px;
-	height: 40px;
-	background: #E0E0E0;
-	border-top:2px solid #ccc;
-	
-	#footer-nav {
-		float: right;
-		font-size: 13px;
-		margin:13px 20px 0 0;
-		
-		ul {
-			liststyle: none;
-		}
-		
-		li {
-			display: inline;
-			padding-right: 5px;
-		}
-		
-		a, a:visited {
-			color: #aaa;
-			&:hover { color: #5994C8; }
-			&:active { color: #5994C8; }
-		}
-	}
-	
-	#sm-icons {
-		float: left;
-		margin:5px 0 0 20px;
-		
-		li {
-			display: inline;
-			padding-right: 5px;
-		}
-	}		
 }
 
 /*------------------MISC--------------------*/

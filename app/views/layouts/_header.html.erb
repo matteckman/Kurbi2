@@ -1,16 +1,38 @@
-<header class="bottom-shadow">
-
-	<% if current_patient %>
-		<%= link_to logo, current_patient %>
+<header class="navbar navbar-fixed-top bottom-shadow">
+	<div class="inner-navbar">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
 		
-		<nav>
-			<%= link_to signout_btn, signout_path %>
-		</nav>
-	<% else %>
-		<%= link_to logo, root_path %>
-		
-		<nav>
-			<%= link_to signin_btn, signin_path %>
-		</nav>
-	<% end %>
+			<% if current_patient %>
+				<%= link_to logo, current_patient, :class => "brand" %>
+					  <div class="nav-collapse">
+					    <ul class="nav actions pull-right">
+					      <li><%= link_to "Log Out", signout_path, :class => "btn btn-success" %></li>
+					    </ul>
+					    
+					    <ul class="nav pages">
+					      <li><%= link_to "About", about_path %></li>
+					      <li><%= link_to "Contact", contact_path %></li>
+					    </ul>
+					  </div><!--/.nav-collapse -->	
+			<% else %>	
+				<%= link_to logo, root_path, :class => "brand" %>
+			          <div class="nav-collapse">		            
+			            <ul class="nav actions pull-right">
+			              <li><%= link_to "Log In", signin_path, :class => "btn btn-success" %></li>
+			            </ul>
+			        
+			            <ul class="nav pages">
+			              <li><%= link_to "Sign Up", signup_path %></li>
+			              <li><%= link_to "About", about_path %></li>
+			              <li><%= link_to "Contact", contact_path %></li>
+			            </ul>
+			          </div><!--/.nav-collapse -->	
+		    <% end %>
+		</div><!--/.container-->
+	</div><!--/.navbar-inner-->   
 </header>

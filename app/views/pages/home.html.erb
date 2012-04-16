@@ -1,18 +1,37 @@
-<%= render 'shared/home_sidenav' %>
-
-<div id="main-home" class="mid-shadow">
-<h1>Track, Manage & Understand Your Health</h1>
-	<section id="home-left">
-		<p>Kurbi is a breakthrough web application that helps people living with chronic disease to more easily communicate the daily challenges of their symptoms to care-providers in-between scheduled visits.</p>
-		<div class="actions">
-		  <%= link_to "Sign up!", signup_path, :id => "home-sign-up", :class => "button round" %>
-		  <div class="home-link">
-		  	<p>Already a user? <%= link_to "Sign in now.", signin_path %></p>
-		  </div><!--.home-link-->
-		</div><!--.actions-->				
-	</section><!--#home-left-->
+<section class="hero-unit">
+	<h1>Track, Manage & Understand Your Health</h1>
 	
-	<section id="home-right">
-		<%= home_image %>				
-	</section><!--#home-right-->
-</div><!--#main-home-->
+	<div class="row-fluid">
+		<div class="span7">
+			<p>Kurbi is a breakthrough web application that helps people living with chronic disease to more easily communicate the daily challenges of their symptoms to care-providers in-between scheduled visits.</p>
+			<div class="sign-up-btn-home">
+				<%= link_to "Create an account", signup_path, :class => "btn btn-success btn-xlarge" %>
+			</div><!--/ .sign-up-btn-home-->
+			
+		</div><!--/ .span7-->
+			
+		<div class="span4">
+			<div class="hidden-phone"><%= home_image %></div>
+		</div><!--/ .span4-->
+	</div><!--/ .row-fluid-->
+</section><!--/ .hero-unit-->
+
+<section class="home-info">
+	<div class="row-fluid">
+		<div class="span4">
+			<h2>Symptom Tracking</h2>
+			<p>Members receive daily email or text notifications to update the type & severity of new or existing symptoms.</p>
+			<p><%= img_symptom_tracking %></p>
+		</div><!--/ .span4-->
+		<div class="span4">
+			<h2>Symptom Charting</h2>
+			<p>Symptom updates are compiled into easy-to-read reports to members understand the changes overtime.</p>
+			<p><%= img_symptom_charting %></p>
+		</div><!--/ .span4-->
+		<div class="span4">
+			<h2>Symptom Sharing</h2>
+			<p>Members can then export symptom reports to send via email to their doctors prior to the next visit.</p>
+			<p><%= img_symptom_sharing %></p>
+		</div><!--/ .span4-->
+	</div><!--/ .row-fluid-->	
+</section><!--/ .hero-unit-->
