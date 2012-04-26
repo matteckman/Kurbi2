@@ -1,18 +1,13 @@
 <!--This is the new user's sign up form page-->
-<%= render 'shared/home_sidenav' %>
-
-<section id="patient_new" class="mid-shadow">
-	<div id="sign_up_form">
+<section class="hero-unit">
 		<h2>Sign up</h2>
-		
 		<%= simple_form_for @patient, :html => { :class => 'form-vertical' } do |f| %>
-			<%= render 'form_new', :f => f %>		
-			<div class="actions">
-				<%= f.submit "Sign up", :class => "button round" %>
-			</div>
+			<%= f.input :first_name, :placeholder => "first name", :label => false %>
+			<%= f.input :last_name, :placeholder => "last name", :label => false %>
+			<%= f.input :email, :placeholder => "email", :label => false  %>
+			<%= f.input :password, :placeholder => "password", :label => false %>
+			<%= f.input :password_confirmation, :placeholder => "confirmation", :label => false %>
+			<%= f.submit "Sign up", :class => "btn btn-success btn-large" %>
 		<% end %>
-		<div class="already_member">
-			<p>Already a member? <%= link_to "Sign in", signin_path %></p>
-		</div><!--.already_member-->
-	</div><!--#sign_up_form-->
+		Already a member? <%= link_to "Sign in", signin_path %>
 </section><!--#main-profile-->

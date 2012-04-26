@@ -13,9 +13,7 @@
 
 html, body { height: 100%; margin: 0; }
 
-#wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -200px; }
-
-
+#wrap { min-height: 100%; height: auto !important; height: 100%; }
 
 /*------------------TYPE-------------------*/
 h1 {
@@ -27,7 +25,6 @@ h1 {
 h2 {
 	font-family: 'Museo300';
 	font-size:20px;
-	color: #253349;
 }
 
 h3 {
@@ -110,6 +107,32 @@ a {
     font-style: normal;
 
 }
+
+/*-----------------FORM TAG-------------------*/
+.field {
+	font-size: 1em;
+	color: #253349;
+	
+	label {
+		display: none;
+	}
+	
+	input {
+		width: 200px;
+		height: 15px;
+		padding-left: 5px;	
+		border:  1px solid #bbb;
+	}
+	
+	.textarea {
+		width: 300px;
+		max-width: 300px;
+		height: 120px;
+		padding-left: 5px;	
+		border:  1px solid #bbb;
+	}
+}
+
 
 /*-----------------FEEDBACK-----------------*/
 #feedback {

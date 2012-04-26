@@ -1,49 +1,55 @@
-<p>
-  <b>Location:</b>
-  <%= @person.location %>
-</p>
+<table class="table table-striped table-bordered">
+	<tbody>
+		<tr>
+			<td>Location</td>
+			<td><%= @person.location %></td>
+		</tr>
+		<tr>
+			<td>Birthday</td>
+			<td><%= @person.birthday %></td>
+		</tr>
+		
+		<tr>
+			<td>Race</td>
+			<td><%= @person.race %></td>
+		</tr>
+		
+		<tr>
+			<td>Sex</td>
+			<td><%= @person.sex %></td>
+		</tr>
+		
+		<tr>
+			<td>Year of First Symptom</td>
+			<td><%= @person.first_occurrence %></td>
+		</tr>
+		
+		<tr>
+			<td>Year Diagnosed</td>
+			<td><%= @person.year_diagnosed %></td>
+		</tr>
+		
+		<tr>
+			<td>Primary Neurologist</td>
+			<td><%= @person.primary_physician %></td>
+		</tr>
+		
+		<tr>
+			<td>Primary Condition</td>
+			<td><%= @person.condition %></td>
+		</tr>
+		
+		<tr>
+			<td>MS Medications</td>
+			<td><%= @person.medications %></td>
+		</tr>
+		
+		<tr>
+			<td>Other Medications</td>
+			<td><%= @person.other_medications %></td>
+		</tr>
+	</tbody>
+</table><!--/ .table .table-striped .table-bordered-->
 
-<p>
-  <b>Birthday:</b>
-  <%= @person.birthday %>
-</p>
 
-<p>
-  <b>Race:</b>
-  <%= @person.race %>
-</p>
 
-<p>
-  <b>Sex:</b>
-  <%= @person.sex %>
-</p>
-
-<p>
-  <b>Year of First Symptom:</b>
-  <%= @person.first_occurrence %>
-</p>
-
-<p>
-  <b>Year Diagnosed:</b>
-  <%= @person.year_diagnosed %>
-</p>
-
-<p>
-  <b>Primary Neurologist:</b>
-  <%= @person.primary_physician %>
-</p>
-
-<p>
-  <b>Primary Condition:</b>
-  <%= @person.condition %>
-</p>
-
-<p>
-  <b>MS Medications:</b>
-  <%= @person.medications %>
-</p>    
-
-<p>
-  <b>Other Medications:</b>
-  <%= @person.other_medications %>
-</p>  

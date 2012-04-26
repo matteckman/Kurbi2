@@ -11,23 +11,27 @@
 				<%= link_to logo, current_patient, :class => "brand" %>
 					  <div class="nav-collapse">
 					    <ul class="nav actions pull-right">
-					      <li><%= link_to "Log Out", signout_path, :class => "btn btn-success" %></li>
+					      <li><%= link_to "Sign out", signout_path, :class => "btn btn-success" %></li>
 					    </ul>
 					    
 					    <ul class="nav pages">
-					      <li><%= link_to "About", about_path %></li>
-					      <li><%= link_to "Contact", contact_path %></li>
+					      <li class="<%= "current" if params[:controller] == "patients" or params[:controller] == "people" %>">
+					      	<%= link_to "Profile", @patient %></li>
+					      <li class="<%= "current" if params[:controller] == "surveys" %>">
+					      	<%= link_to "Journal", survey_path %></li>
+					      <li class="<%= "current" if params[:controller] == "histories" %>">
+					      	<%= link_to "History", history_path %></li>
 					    </ul>
 					  </div><!--/.nav-collapse -->	
 			<% else %>	
 				<%= link_to logo, root_path, :class => "brand" %>
 			          <div class="nav-collapse">		            
 			            <ul class="nav actions pull-right">
-			              <li><%= link_to "Log In", signin_path, :class => "btn btn-success" %></li>
+			              <li><%= link_to "Sign in", signin_path, :class => "btn btn-success" %></li>
 			            </ul>
 			        
 			            <ul class="nav pages">
-			              <li><%= link_to "Sign Up", signup_path %></li>
+			              <li><%= link_to "Sign up", signup_path %></li>
 			              <li><%= link_to "About", about_path %></li>
 			              <li><%= link_to "Contact", contact_path %></li>
 			            </ul>

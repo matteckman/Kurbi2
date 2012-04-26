@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 
@@ -19,6 +19,7 @@ end
 
 # gem 'friendly_id', '~> 4.0.4'
 gem 'simple_form', '~> 2.0.1'
+gem 'paperclip'
 
 # jQuery Stuff
 gem 'jquery-rails'

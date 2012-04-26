@@ -1,29 +1,26 @@
-<section id="new_session">
+<section class="hero-unit">
 	<h2>Sign in</h2>
 	
-	<%= form_tag sessions_path do %> 
+	<%= form_tag sessions_path, :html => { :class => 'form-vertical' } do %> 
 	  <div class="field">
-	    <%= label_tag :email %><br />
-	    <%= text_field_tag :email, params[:email] %>
+	    <%= label_tag :email %>
+	    <%= text_field_tag :email, params[:email], :placeholder => "email" %>
 	  </div>
 	  <div class="field">
-	    <%= label_tag :password %><br />
-	    <%= password_field_tag :password %>
+	    <%= label_tag :password %>
+	    <%= text_field_tag :password, params[:email], :placeholder => "password", :type => "password" %>
 	  </div>
-	  <!--begin FORGOTTEN-PASSWORD-->
-	  <p><%= link_to "forgotten password?", new_password_reset_path %></p>
-	  <!--end FORGOTTEN-PASSWORD-->
-	  <!--begin REMEMBER-ME-->
-	  <div class="check-box">
-	  	<%= check_box_tag :remember_me, 1, params[:remember_me] %>
-	  	<%= label_tag :remember_me %>
-	  </div>
-	 <!-- end REMEMBER-ME-->
-	  <div class="actions">
-	  	<%= submit_tag "Log in", :class => "button round" %>
+	 <div class="actions">
+	  	<%= submit_tag "Sign in", :class => "btn btn-success btn-large" %>
 	  </div><!--.actions-->
 	<% end %>	
-	<p>Not a member? <%= link_to "Sign up", signup_path %></p>
+	<!--begin REMEMBER-ME-->
+	<%= check_box_tag :remember_me, 1, params[:remember_me] %><%= label_tag :remember_me %>
+	<!-- end REMEMBER-ME-->
+	<!--begin FORGOTTEN-PASSWORD-->
+	<%= link_to "Reset password?", new_password_reset_path %><br/>
+	<!--end FORGOTTEN-PASSWORD-->
+	Not yet a member? <%= link_to "Sign up", signup_path %>
 </section><!--#new_session-->
 
 
