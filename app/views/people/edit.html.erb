@@ -1,5 +1,9 @@
-<section id="edit-profile">	
+<section class="row">
 	<h2>Editing Your Profile</h2>
-	
-	<%= render 'form' %>
- </section>
+	<div class="span4 sidebar">
+		<%= render 'shared/profile_sidebar' %>
+	</div><!--/ .span4 .sidebar-->	
+	<div class="span7">
+		<%= render 'form' %>
+	</div><!--/ .span7-->
+</section><!--/ .row-->

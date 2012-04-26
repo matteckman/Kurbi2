@@ -16,7 +16,7 @@
 					    
 					    <ul class="nav pages">
 					      <li class="<%= "current" if params[:controller] == "patients" or params[:controller] == "people" %>">
-					      	<%= link_to "Profile", @patient %></li>
+					      	<%= link_to "Profile", current_patient %></li>
 					      <li class="<%= "current" if params[:controller] == "surveys" %>">
 					      	<%= link_to "Journal", survey_path %></li>
 					      <li class="<%= "current" if params[:controller] == "histories" %>">

@@ -1,9 +1,17 @@
-
-
-<section id="main-profile" class="mid-shadow">
-	<%= render 'shared/profile_nav' %>
-	<div id="edit_settings_form">
-		<h2>Edit Account Settings</h2>
-		<%= render 'form_edit' %>
-	</div><!--#edit_settings_form-->
-</section><!--#main_profile-->
+<section class="row">
+	<h2>Edit Account Settings</h2>
+	<div class="span4 sidebar">
+		<%= render 'shared/profile_sidebar' %>
+	</div><!--/ .span4 .sidebar-->	
+	<div class="span7">
+		<%= simple_form_for @patient, :html => { :multipart => true, :class => 'form-vertical' } do |f| %>
+			<%= f.input :first_name, :label => 'First Name', :required => false %>
+			<%= f.input :last_name, :label => 'Last Name', :required => false %>
+			<%= f.input :email, :label => 'Email'  %>
+			<%= f.input :password, :placeholder => "change password", :label => 'Password' %>
+			<%= f.input :password_confirmation, :placeholder => "confirm new password", :label => 'Confirmation' %>
+			<%= f.input :image, :as => :file, :label => 'Profile Image' %>
+			<%= f.submit "Update", :class => "btn btn-success btn-large" %>
+		<% end %>
+	</div><!--/ .span7-->
+</section><!--/ .row-->

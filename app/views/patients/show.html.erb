@@ -1,19 +1,9 @@
 <section class="row">
-<h2>Profile Information</h2>
+	<h2>Profile Information</h2>
 	<div class="span4 sidebar">
-		<div class="profile-info">
-			<h2><%= @patient.first_name + " " + @patient.last_name %></h2>
-			<%= profile_image %>
-			
-		</div><!--/ .profile_info-->
-		<ul class="nav nav-tabs nav-stacked">
-			<li><%= link_to "Account Settings", edit_patient_path(current_patient) %></li>
-			<li><%= link_to "Edit Profile", edit_person_path(@person) %></li>
-			<li><%= link_to "Your Care Team", '#' %></li>
-		</ul>
-	</div>
-	
+		<%= render 'shared/profile_sidebar' %>
+	</div><!--/ .span4 .sidebar-->
 	<div class="span7">
 		<%= render 'patients/profile_information' %>
-	</div>
+	</div><!--/ .span7-->
 </section><!--/ .row-->

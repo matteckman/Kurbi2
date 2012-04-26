@@ -11,6 +11,7 @@ class Patient < ActiveRecord::Base
 	has_many :search_query, :through => :search
 	has_secure_password
 	
+	has_attached_file :image
 	
 	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
 		

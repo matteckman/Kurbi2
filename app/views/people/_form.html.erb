@@ -1,49 +1,15 @@
-<%= form_for(@person) do |f| %>
- 
-
-  <div class="field">
-    <%= f.label :location, "Where are you currently located? (city, state)" %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :birthday, "What is your birthday?" %><br />
-    <%= f.date_select :birthday, :end_year => 1920, :start_year => 2000 %>
-  </div>
-  <div class="field">
-    <%= f.label :race, "What is your ethnicity?" %><br />
-    <%= f.select :race, ['American Indian or Alaska Native', 'Asian', 'African American', 'Hispanic or Latino', 'Native Hawaiian or Other Pacific Islander', 'White', 'Other'] %>
-  </div>
-  <div class="field">
-    <%= f.label :sex, "What is your sexual orientation?" %><br />
-    <%= f.select :sex, ['Male', 'Female'] %>
-  </div>
-  <div class="field">
-    <%= f.label :first_occurrence, "What year did you experience your first symptom?" %>
-    <br />
-    <%= f.select(:first_occurrence, 1920..2012) %>
-  </div>
-  <div class="field">
-    <%= f.label :year_diagnosed, "What year were you diagnosed?" %><br />
-    <%= f.select(:year_diagnosed, 1920..2012) %>
-  </div>
-  <div class="field">
-    <%= f.label :primary_physician, "Who is your primary neurologist?" %><br />
-    <%= f.text_field :primary_physician %>
-  </div>
-  <div class="field">
-    <%= f.label :condition, "What primary type of MS do you have?" %><br />
-    <%= f.select :condition, ['Benign Multiple Sclerosis (MS)', 'Relapsing-Remitting Multiple Sclerosis (RRMS)', 'Secondary Progressive Multiple Sclerosis (SPMS)', 'Primary Progressive Multiple Sclerosis (PPMS)', 'Progressive Relapsing Multiple Sclerosis (PRMS)', 'Malignant Multiple Sclerosis (Marburg Variant)'] %>
-  </div>
-  <div class="field">
-    <%= f.label :medications, "What MS specific medications are you currently taking?" %><br />
-    <%= f.select :medications, ['Avonex', 'Betaseron', 'Extavia', 'Rebif', 'Copaxone', 'Gilenya', 'Tysabri', 'Novantrone', 'Other'] %>
-  </div>
-  <div class="field">
-    <%= f.label :other_medications, "What other medications are you currently taking?" %><br />
-    <%= f.text_field :other_medications %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Update", :class => "button round" %> OR <%= link_to "Cancel", current_patient, :class => "button round" %>
-  </div>
+<%= simple_form_for @person, :html => { :class => 'form-vertical' } do |f| %>
+    <%= f.input :location, :label => 'Where are you currently located? (city, state)' %>
+ 	<%= f.input :birthday, :as => :date, :start_year => Date.today.year - 90,
+ 	                              :end_year => Date.today.year - 12, :discard_day => true,
+ 	                              :order => [:month, :year], :label => 'In what year & month were you born?' %>
+    <%= f.input :race, :collection => ['American Indian or Alaska Native', 'Asian', 'African American', 'Hispanic or Latino', 'Native Hawaiian or Other Pacific Islander', 'White', 'Other'], :label => 'What is your ethnicity?' %>
+    <%= f.input :sex, :collection => ['Male', 'Female'], :label => 'What is your sexual orientation?' %>
+    <%= f.input :first_occurrence, :collection => 1920..2012, :label => 'What year did you experience your first symptom?' %>
+    <%= f.input :year_diagnosed, :collection => 1920..2012, :label => 'What year were you diagnosed?' %>
+    <%= f.input :primary_physician, :label => 'Who is your primary neurologist?' %>
+    <%= f.input :condition, :collection => ['Benign Multiple Sclerosis (MS)', 'Relapsing-Remitting Multiple Sclerosis (RRMS)', 'Secondary Progressive Multiple Sclerosis (SPMS)', 'Primary Progressive Multiple Sclerosis (PPMS)', 'Progressive Relapsing Multiple Sclerosis (PRMS)', 'Malignant Multiple Sclerosis (Marburg Variant)'], :label => 'What primary type of MS do you have?' %>
+    <%= f.input :medications, :collection => ['Avonex', 'Betaseron', 'Extavia', 'Rebif', 'Copaxone', 'Gilenya', 'Tysabri', 'Novantrone', 'Other'], :label => 'What MS specific medications are you currently taking?' %>
+    <%= f.input :other_medications, :label => 'What other medications are you currently taking?' %>
+    <%= f.submit "Update", :class => "btn btn-success btn-large" %> 
 <% end %>

@@ -10,8 +10,6 @@ class Person < ActiveRecord::Base
 	attr_accessible :birthday, :user_name, :location, :race, :sex, :bio, 
 	:first_occurrence, :year_diagnosed, :condition, :primary_physician, :medications, :other_medications
 	
-	has_attached_file :image
-	
 	def to_param
 		"#{id} #{patient.first_name + " " + patient.last_name}".parameterize
 	end

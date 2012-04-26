@@ -20,6 +20,7 @@ class PeopleController < ApplicationController
   # GET /people/1/edit
   def edit
     @person = Person.find(params[:id])
+    @title = current_patient.first_name + " " + current_patient.last_name
   end
 
   # POST /people
@@ -32,7 +33,8 @@ class PeopleController < ApplicationController
   def update
     @person = Person.find(params[:id])
     @patient = current_patient
-
+	@title = current_patient.first_name + " " + current_patient.last_name
+	
     respond_to do |format|
       if @person.update_attributes(params[:person])
         format.html { redirect_to @patient, notice: 'Your profile information has been updated.' }
