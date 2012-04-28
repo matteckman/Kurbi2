@@ -2,7 +2,7 @@
     <%= f.input :location, :label => 'Where are you currently located? (city, state)' %>
  	<%= f.input :birthday, :as => :date, :start_year => Date.today.year - 90,
  	                              :end_year => Date.today.year - 12, :discard_day => true,
- 	                              :order => [:month, :year], :label => 'In what year & month were you born?' %>
+ 	                              :order => [:month, :year], :label => 'In what month & year were you born?' %>
     <%= f.input :race, :collection => ['American Indian or Alaska Native', 'Asian', 'African American', 'Hispanic or Latino', 'Native Hawaiian or Other Pacific Islander', 'White', 'Other'], :label => 'What is your ethnicity?' %>
     <%= f.input :sex, :collection => ['Male', 'Female'], :label => 'What is your sexual orientation?' %>
     <%= f.input :first_occurrence, :collection => 1920..2012, :label => 'What year did you experience your first symptom?' %>

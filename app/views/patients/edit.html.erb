@@ -8,9 +8,15 @@
 			<%= f.input :first_name, :label => 'First Name', :required => false %>
 			<%= f.input :last_name, :label => 'Last Name', :required => false %>
 			<%= f.input :email, :label => 'Email'  %>
-			<%= f.input :password, :placeholder => "change password", :label => 'Password' %>
-			<%= f.input :password_confirmation, :placeholder => "confirm new password", :label => 'Confirmation' %>
-			<%= f.input :image, :as => :file, :label => 'Profile Image' %>
+			<%= f.input :password, :label => 'Password' %>
+			<%= f.input :password_confirmation, :label => 'Confirmation' %>
+			<% if @patient.photo? %>
+				<%= image_tag @patient.photo.url, :class => "round" %>
+			<% else %>
+				<%= profile_image %>
+			<% end %>
+			
+			<%= f.input :photo, :as => :file, :label => false %>
 			<%= f.submit "Update", :class => "btn btn-success btn-large" %>
 		<% end %>
 	</div><!--/ .span7-->

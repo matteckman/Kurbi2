@@ -11,9 +11,7 @@ class Patient < ActiveRecord::Base
 	has_many :search_query, :through => :search
 	has_secure_password
 	
-	has_attached_file :image
-	
-	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+	attr_accessible :first_name, :last_name, :email, :photo, :password, :password_confirmation 
 		
 	validates :first_name, :presence => true, :length => { :maximum => 50 }
 	validates :last_name,  :presence => true, :length => { :maximum => 50 }
@@ -22,6 +20,8 @@ class Patient < ActiveRecord::Base
 	validates :email,    :format => { :with => email_regex },
 					     :uniqueness => { :case_sensitive => false }
 	validates :password, :confirmation => true
+	
+	has_attached_file :photo, :styles => { :small => "75x75>" }
 	                    	
 	before_create { generate_token(:auth_token) } 
 	before_create :build_default_profile                    

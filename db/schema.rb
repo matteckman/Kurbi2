@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425154011) do
+ActiveRecord::Schema.define(:version => 20120426211707) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -112,6 +112,10 @@ ActiveRecord::Schema.define(:version => 20120425154011) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "patients", ["email"], :name => "index_patients_on_email", :unique => true
