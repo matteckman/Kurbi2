@@ -11,7 +11,7 @@
 			<%= f.input :password, :label => 'Password' %>
 			<%= f.input :password_confirmation, :label => 'Confirmation' %>
 			<% if @patient.photo? %>
-				<%= image_tag @patient.photo.url, :class => "round" %>
+				<%= image_tag @patient.photo.url(:small), :class => "round" %>
 			<% else %>
 				<%= profile_image %>
 			<% end %>

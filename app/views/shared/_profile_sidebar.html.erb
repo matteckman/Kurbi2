@@ -1,7 +1,7 @@
 <div class="profile-info">
 	<h2><%= link_to current_patient.first_name + " " + current_patient.last_name, current_patient %></h2>
 	<% if current_patient.photo? %>
-		<%= image_tag current_patient.photo.url, :class => "round" %>
+		<%= image_tag current_patient.photo.url(:small), :class => "round" %>
 	<% else %>
 		<%= profile_image %>
 	<% end %>

@@ -21,7 +21,13 @@ class Patient < ActiveRecord::Base
 					     :uniqueness => { :case_sensitive => false }
 	validates :password, :confirmation => true
 	
-	has_attached_file :photo, :styles => { :small => "75x75>" }
+	has_attached_file :photo, :styles => { :small => "75x75>" },
+						      :url  => "/assets/patients/:id/:style/:basename.:extension",
+	                          :path => ":rails_root/public/assets/patients/:id/:style/:basename.:extension"
+	
+	validates_attachment_presence :photo
+	validates_attachment_size :photo, :less_than => 5.megabytes
+	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 	                    	
 	before_create { generate_token(:auth_token) } 
 	before_create :build_default_profile                    
