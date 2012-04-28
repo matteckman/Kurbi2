@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426211707) do
+ActiveRecord::Schema.define(:version => 20120428195320) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -103,29 +103,12 @@ ActiveRecord::Schema.define(:version => 20120426211707) do
   end
 
   create_table "patients", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "username"
     t.string   "email"
-    t.string   "password_digest"
-    t.string   "auth_token"
-    t.string   "password_reset_token"
-    t.datetime "password_reset_sent_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-  end
-
-  add_index "patients", ["email"], :name => "index_patients_on_email", :unique => true
-
-  create_table "people", :force => true do |t|
     t.string   "social_security"
     t.date     "birthday"
-    t.string   "user_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "location"
     t.string   "race"
     t.string   "sex"
@@ -133,14 +116,24 @@ ActiveRecord::Schema.define(:version => 20120426211707) do
     t.string   "first_occurrence"
     t.string   "year_diagnosed"
     t.string   "condition"
-    t.text     "medications"
-    t.string   "other_medications"
-    t.integer  "patient_id"
     t.string   "primary_physician"
+    t.string   "medications"
+    t.text     "other_medications"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "password_digest"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "people", ["patient_id"], :name => "index_people_on_patient_id"
-  add_index "people", ["user_name"], :name => "index_people_on_user_name", :unique => true
+  add_index "patients", ["email"], :name => "index_patients_on_email", :unique => true
+  add_index "patients", ["social_security"], :name => "index_patients_on_social_security", :unique => true
+  add_index "patients", ["username"], :name => "index_patients_on_username", :unique => true
 
   create_table "predefined_symptoms", :force => true do |t|
     t.string   "name"

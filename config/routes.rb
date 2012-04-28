@@ -2,12 +2,12 @@ Kurbi2::Application.routes.draw do
   
   root :to => 'pages#home'
   
-  match '/public/about',   :to => 'pages#about',       :as => 'about'
-  match '/public/home',    :to => 'pages#home',        :as => 'home'
-  match '/public/contact', :to => 'pages#contact',     :as => 'contact' 
-  match '/member/signup',  :to => 'patients#new',      :as => 'signup'
-  match '/member/signin',  :to => 'sessions#new',      :as => 'signin'
-  match '/member/signout', :to => 'sessions#destroy',  :as => 'signout'
+  match '/about',   :to => 'pages#about',       :as => 'about'
+  match '/home',    :to => 'pages#home',        :as => 'home'
+  match '/contact', :to => 'pages#contact',     :as => 'contact' 
+  match '/signup',  :to => 'patients#new',      :as => 'signup'
+  match '/signin',  :to => 'sessions#new',      :as => 'signin'
+  match '/signout', :to => 'sessions#destroy',  :as => 'signout'
 
   match '/admin', :to => 'admins#index', :as => 'admin'
   match '/admin/symptom_categories/index', :to => 'symptom_categories#index', :as => 'admin_list_categories'
@@ -40,11 +40,12 @@ Kurbi2::Application.routes.draw do
 
   resources :predefined_symptoms
 
-  resources :people
+#  resources :people
 
 #  resources :patient_symptom_searches
 
   resources :patients
+  match '/patients/:id/edit/profile', :to => 'patients#profile', :as => 'profile'
 
 #  resources :pages
 

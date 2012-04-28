@@ -26,7 +26,7 @@ gem 'jquery-rails'
 gem "jquery-ui-themes", "~> 0.0.4"
 
 # To use ActiveModel has_secure_password
- gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'

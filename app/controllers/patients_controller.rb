@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_filter :authorize, :only => [:show, :edit, :update]
+  before_filter :authorize, :only => [:show, :edit, :update, :profile]
   
   # GET /patients
   # GET /patients.json
@@ -16,7 +16,6 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-    @person = @patient.person
 	@title = (@patient.first_name + " " + @patient.last_name)
 
     respond_to do |format|
@@ -40,7 +39,6 @@ class PatientsController < ApplicationController
   # GET /patients/1/edit
   def edit
     @patient = Patient.find(params[:id])
-    @person = @patient.person
     @title = "Edit Account Settings"
   end
 
@@ -48,30 +46,39 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(params[:patient])
-    if @patient.save
-        sign_in @patient
-        flash[:success] = "Welcome to Kurbi! Click 'Edit Profile' to enter your profile information."
-        redirect_to @patient
-        PatientMailer.registration_confirmation(@patient).deliver
-    else
-        @title = "Sign up"
-        render "new"
-    end 
+    
+    respond_to do |format|
+	    if @patient.save
+     	   sign_in @patient
+           format.html { redirect_to @patient, notice: 'Welcome to Kurbi! Please complete your registration by filling out your profile information.' }
+           format.json { render json: @patient, status: :created, location: @patient }	
+           PatientMailer.registration_confirmation(@patient).deliver
+    	else
+          @title = "Sign up"
+          format.html { render action: "new" }
+          format.json { render json: @patient.errors, status: :unprocessable_entity }
+        end 
+    end   
   end
 
   # PUT /patients/1
   # PUT /patients/1.json
   def update
     @patient = Patient.find(params[:id])
-	if @patient.update_attributes(params[:patient])
-		flash[:success] = "Your account settings have been updated."
-		redirect_to @patient
-	else
-		@title = "Edit Account Settings"
-		render "edit"
-	end
+    
+    respond_to do |format|
+		if @patient.update_attributes(params[:patient])
+			format.html { redirect_to @patient, notice: 'Your account settings have been updated.' }
+			format.json { head :ok }
+		else
+			@title = "Edit Account Settings"
+			format.html { render action: "edit" }
+			format.json { render json: @patient.errors, status: :unprocessable_entity }
+			render "edit"
+		end
+	end	
   end
-
+    
   # DELETE /patients/1
   # DELETE /patients/1.json
   def destroy
@@ -82,6 +89,11 @@ class PatientsController < ApplicationController
       format.html { redirect_to patients_url }
       format.json { head :no_content }
     end
+  end
+  
+  def profile
+  	@title = "Edit Profile"
+  	render 'edit_profile'
   end
 end
 
