@@ -95,5 +95,10 @@ class PatientsController < ApplicationController
   	@title = "Edit Profile"
   	render 'edit_profile'
   end
+  
+  def careteam
+  	@title = "My Care Team"
+  	render 'care_team'
+  end
 end
 

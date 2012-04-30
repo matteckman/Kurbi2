@@ -46,6 +46,7 @@ Kurbi2::Application.routes.draw do
 
   resources :patients
   match '/patients/:id/edit/profile', :to => 'patients#profile', :as => 'profile'
+  match '/patients/:id/careteam', :to => 'patients#careteam', :as => 'careteam'
 
 #  resources :pages
 

@@ -11,11 +11,11 @@
 			<%= f.input :password, :label => 'Password' %>
 			<%= f.input :password_confirmation, :label => 'Confirmation' %>
 				<% if @patient.photo? %>
-					<%= image_tag @patient.photo.url(:small), :class => "round" %>
+					<%= image_tag @patient.photo.url(:small), :class => "round mid-shadow" %>
 				<% else %>
 					<%= profile_image %>
 				<% end %>
-			<%= f.input :photo, :as => :file, :label => false, :hint => 'must enter password to submit updates' %>
+			<%= f.input :photo, :as => :file, :label => false %>
 			<%= f.submit "Update", :class => "btn btn-success btn-large" %>
 		<% end %>
 	</div><!--/ .span7-->

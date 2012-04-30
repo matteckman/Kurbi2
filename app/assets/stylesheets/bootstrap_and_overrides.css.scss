@@ -98,6 +98,10 @@ ul.nav.pages li a:hover {
 .span12 { }
 
 /*-----------------SIDEBAR------------------*/
+.span4.sidebar {
+	margin-bottom: 25px;
+}
+
 .sidebar {
 	background: $heroUnitBackground;
 	border:1px solid #ddd;

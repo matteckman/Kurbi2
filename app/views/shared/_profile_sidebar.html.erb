@@ -1,7 +1,7 @@
 <div class="profile-info">
 	<h2><%= link_to current_patient.first_name + " " + current_patient.last_name, current_patient %></h2>
 	<% if current_patient.photo? %>
-		<%= image_tag current_patient.photo.url(:small), :class => "round" %>
+		<%= image_tag current_patient.photo.url(:small), :class => "round mid-shadow" %>
 	<% else %>
 		<%= profile_image %>
 	<% end %>
@@ -10,5 +10,5 @@
 	<li><%= link_to "View Profile", current_patient %></li>
 	<li><%= link_to "Edit Profile", profile_path %></li>
 	<li><%= link_to "Account Settings", edit_patient_path(current_patient) %></li>
-	<li><%= link_to "Care Team", '#' %></li>
+	<li><%= link_to "Care Team", careteam_path %></li>
 </ul>
