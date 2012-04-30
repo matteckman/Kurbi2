@@ -50,7 +50,7 @@ class PatientsController < ApplicationController
     respond_to do |format|
 	    if @patient.save
      	   sign_in @patient
-           format.html { redirect_to @patient, notice: 'Welcome to Kurbi! Please complete your registration by filling out your profile information.' }
+           format.html { redirect_to profile_path(@patient), notice: 'Welcome to Kurbi! Please complete your registration by filling out your profile information.' }
            format.json { render json: @patient, status: :created, location: @patient }	
            PatientMailer.registration_confirmation(@patient).deliver
     	else
