@@ -1,15 +1,10 @@
-<section id="reset_password">
+<section class="hero-unit">
 	<h2>Reset Password</h2>
-	<%= form_for @patient, :url => password_reset_path(params[:id]) do |f| %>
-	  <%= render 'shared/error_messages', :object => f.object %>
-	  <div class="field">
-	    <%= f.label :password %><br/>
-	    <%= f.password_field :password %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :password_confirmation, "Confirmation" %><br/>
-	    <%= f.password_field :password_confirmation %>
-	  </div>
-	  <div class="actions"><%= f.submit "Reset Password", :class => "button round" %></div>
+	<%= simple_form_for @patient, :url => password_reset_path(params[:id]), :html => { :class => 'form-vertical' } do |f| %>
+	  <%= f.input :password, :placeholder => "password", :label => false %>
+	  <%= f.input :password_confirmation, :placeholder => "confirmation", :label => false %>
+	  <%= f.submit "Reset Password", :class => "btn btn-success btn-large" %>
 	<% end %>
-</section><!--#reset_password-->	
+</section><!--/ .hero-unit-->
+
+	

@@ -1,11 +1,11 @@
 class Patient < ActiveRecord::Base
 	has_many				:notifications
 	has_many				:messages, :through => :notifications
-	has_many				:actionconfirmations
-	has_many				:actions, :through => :actionconfirmations
+	has_many				:action_confirmations
+	has_many				:actions, :through => :action_confirmations
 	has_and_belongs_to_many 	      :addresses
 	
-	has_and_belongs_to_many	:patient groups
+	has_and_belongs_to_many	:patient_groups
 	
 	has_many				:daily_records
 	has_many 				:daily_record_details, :through => :daily_records
@@ -13,9 +13,9 @@ class Patient < ActiveRecord::Base
 	has_many				:days, :through => :daily_records
 	
 	has_many				:searches
-	has_many				:search phrases, :through => :searches
+	has_many				:search_phrases, :through => :searches
 	
-	has_many				:notes, :through => :daily_records:
+	has_many				:notes, :through => :daily_records
 	
 	has_many				:surveys
 	has_many				:symptoms, :through => :surveys

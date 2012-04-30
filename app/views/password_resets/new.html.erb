@@ -1,11 +1,11 @@
-<section id="reset_password">
+<section class="hero-unit">
 	<h2>Reset Password</h2>
-		
-	<%= form_tag password_resets_path, :method => :post do %>
+	<%= form_tag password_resets_path, :html => { :class => 'form-vertical' }, :method => :post do %>
 	  <div class="field">
-	    <%= label_tag :email %><br/>
-	    <%= text_field_tag :email, params[:email] %>
+	    <%= label_tag :email %>
+	    <%= text_field_tag :email, params[:email], :placeholder => "email" %>
 	  </div>
-	  <div class="actions"><%= submit_tag "Reset Password", :class => "button round" %></div>
+	  <div class="actions"><%= submit_tag "Reset Password", :class => "btn btn-success btn-large" %></div>
 	<% end %>
-</section>
+</section><!--/ .hero-unit-->
+
