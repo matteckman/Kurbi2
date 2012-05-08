@@ -1,6 +1,6 @@
 module PatientsHelper
 	def profile_image
-		image_tag("default-profile.png")
+		image_tag "kurbi-pic.png", :class => " round mid-shadow"
 	end
 
 end

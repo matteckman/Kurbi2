@@ -7,43 +7,59 @@
   });
 </script>
 
-<!--Rendering the shared profile nav that contains 'watch tutorial', 'settings', 'edit profile', 'share with doctor'-->
-<%= render 'shared/sidenav' %>
-
-<section id="survey-section" class="mid-shadow">
-	<%= render 'shared/profile_nav' %>
-	
-	<div class="auto-update-btn"><%= link_to auto_update_btn, '#' %></div><!--.auto-update-btn-->
-	<h1>Personal<br/> Health Journal</h1>
+<section>		
+	<h1>Personal Health Journal</h1>
 	<hr class="round">
 	
-	<section id="short_path_survey">
-		<p class="symptom_name">Movement and sound phosphenes<br/><a href="" class="get_more_button">Get Info</a></p>
-		<div class="slider_container"><div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">4</span></div></div>
-		<p class="symptom_description"><i>Flashing lights when moving eyes or in response to a sudden noise</i></p>
+	<div class="span6">
+		<h4 class="span4">Movement and sound phosphenes</h4><br/>
+		<div class="span4">
+			<div class="slider"></div>
+			<span class="first_number">0</span>
+		</div>		
+	</div>
+	
+	<div class="span6">	
+		<h4 class="span4">Paresis, Monoparesis, Paraparesis, Hemiparesis, Quadraparesis</h4><br/>
+		<div class="span4">
+			<div class="slider"></div>
+			<span class="first_number">0</span>
+		</div>		
+	</div>
+	
+	<div class="span6">	
+		<h4 class="span4">Plegia, Paraplegia, Hemiplegia, Tetraplegia, Quadraplegia</h4><br/>
+		<div class="span4">
+			<div class="slider"></div>
+			<span class="first_number">0</span>
+		</div>		
+	</div>
+	
+	<div class="span6">	
+		<h4 class="span4">Spasticity</h4><br/>
+		<div class="span4">
+			<div class="slider"></div>
+			<span class="first_number">0</span>
+		</div>		
+	</div>
+	
+	<div class="span6">
+		<h4 class="span4">Muscle Atrophy</h4><br/>
+		<div class="span4">
+			<div class="slider"></div>
+			<span class="first_number">0</span>
+		</div>	
+	</div>
 		
-		<p class="symptom_name">Paresis, Monoparesis, Paraparesis, Hemiparesis, Quadraparesis<br/><a href="" class="get_more_button">Get Info</a></p>
-		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">4</span></div>
-		<p class="symptom_description"><i>Muscle weakness - partial or mild paralysis</i></p>
-		
-		<p class="symptom_name">Plegia, Paraplegia, Hemiplegia, Tetraplegia, Quadraplegia<br/><a href="" class="get_more_button">Get Info</a></p>
-		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">2</span></div>
-		<p class="symptom_description"><i>Paralysis - Total or near total loss of muscle strength</i></p>
-		
-		<p class="symptom_name">Spasticity<br/><a href="" class="get_more_button">Get Info</a></p>
-		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">5</span></div>
-		<p class="symptom_description"><i>Loss of muscle tone causing stiffness, pain and restricting free movement of affected limbs</i></p>
-		
-		<p class="symptom_name">Muscle Atrophy<br/><a href="" class="get_more_button">Get Info</a></p>
-		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">5</span></div>
-		<p class="symptom_description"><i>Wasting of muscles due to lack of use</i></p>
-		
-		<p class="symptom_name">Spasms, Cramps<br/><a href="" class="get_more_button">Get Info</a></p>
-		<div class="slider_container"><div class="slider"></div><span class="first_number">0</span><span class="second_number">1</span></div>
-		
-		<div class="show_more_button"><%= link_to show_more_button, 'http://localhost:3000/surveys/20/more' %></div>
-	</section><!--#short_path_survey-->
-</section><!--#survey-section-->
+	<div class="span6">	
+		<h4 class="span4">Spasms, Cramps</h4><br/>
+		<div class="span4">
+			<div class="slider"></div>
+			<span class="first_number">0</span>
+		</div>	
+	</div>
+	
+</section><!--/ .hero-unit-->
 
 <table id="lower-survey-section">
 	  <tbody>

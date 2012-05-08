@@ -3,81 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*-----------------MAIN SURVEY SECTION-------------------*/
-#survey-section {
-	margin:85px 0 0 194px;
-	padding-bottom: 30px;
-	width: 838px;
-	min-height: 640px;
-	height: 100%;
-	background: url(../images/main-bkgd.png) repeat;
-	
-	h1 {
-		margin:10px 0 0 30px;
-		font-size: 35px;
-		color: #fff; 
-	}
-	
-	.auto-update-btn {
-		position: relative;
-		float: right;
-		top: 50px;
-		right: 400px;
-	}
-	
-	hr {
-		margin:10px 0 0 30px;
-		width: 770px;
-		height: 10px;
-		background: url(../images/bkgd-btn.gif) repeat;
-		border: none;
-	}
-	
-	#short_path_survey {
-		.symptom_name {
-			margin:30px 0 0 20px;
-			width: 350px;
-			font-size: 18px;
-			color: #fff;
-			
-			a, a:visited {
-				color: #444;
-			}
-		}
-		
-		.symptom_description { 
-			margin:0 0 0 20px;
-			font-family: 'Museo500';
-			font-size: 12px;
-			color: #2F4459;
-		}
-		
-		.get_more_button {
-			position: relative;
-			top: px;
-			left: 40px;			
-			float: right;
-			padding:2px 4px 2px 4px;
-			font-size: 11px;
-			background: #C1C1C1;	
-		}
-		
-		.slider { 
-			margin:20px 10px 10px 30px;
-			display: block;
-			height: 10px;
-			width: 380px;
-		}
-		
-		.slider_container {
-			width:500px;
-		}		
-	}
-}
-
-
 /*-----------------LOWER SURVEY SECTION-------------------*/
 #lower-survey-section {
-	margin:25px 0 0 224px;
+	margin:25px 0 0 0;
 		
 	h4 {
 		margin-bottom: 10px;

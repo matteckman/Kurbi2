@@ -33,7 +33,7 @@ class Patient < ActiveRecord::Base
 	has_secure_password
 	validates :password, :confirmation => true
 	
-	has_attached_file :photo, :styles => { :small => "75x75>" },
+	has_attached_file :photo, :styles => { :small => "95x83>" },
 						      :url  => "/assets/patients/:id/:style/:basename.:extension",
 	                          :path => ":rails_root/public/assets/patients/:id/:style/:basename.:extension"
 	
