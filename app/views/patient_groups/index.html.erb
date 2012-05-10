@@ -1,0 +1,25 @@
+<h1>Listing patient_groups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @patient_groups.each do |patient_group| %>
+  <tr>
+    <td><%= patient_group.name %></td>
+    <td><%= patient_group.description %></td>
+    <td><%= link_to 'Show', patient_group %></td>
+    <td><%= link_to 'Edit', edit_patient_group_path(patient_group) %></td>
+    <td><%= link_to 'Destroy', patient_group, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Patient group', new_patient_group_path %>

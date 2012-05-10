@@ -2,6 +2,8 @@
 
 <table>
   <tr>
+    <th>Patient</th>
+    <th>Search phrase</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +11,8 @@
 
 <% @searches.each do |search| %>
   <tr>
+    <td><%= search.patient_id %></td>
+    <td><%= search.search_phrase %></td>
     <td><%= link_to 'Show', search %></td>
     <td><%= link_to 'Edit', edit_search_path(search) %></td>
     <td><%= link_to 'Destroy', search, confirm: 'Are you sure?', method: :delete %></td>

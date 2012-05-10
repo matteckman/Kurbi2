@@ -2,6 +2,9 @@
 
 <table>
   <tr>
+    <th>Severity</th>
+    <th>Symptom</th>
+    <th>Daily record</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +12,9 @@
 
 <% @daily_record_details.each do |daily_record_detail| %>
   <tr>
+    <td><%= daily_record_detail.severity %></td>
+    <td><%= daily_record_detail.symptom_id %></td>
+    <td><%= daily_record_detail.daily_record_id %></td>
     <td><%= link_to 'Show', daily_record_detail %></td>
     <td><%= link_to 'Edit', edit_daily_record_detail_path(daily_record_detail) %></td>
     <td><%= link_to 'Destroy', daily_record_detail, confirm: 'Are you sure?', method: :delete %></td>

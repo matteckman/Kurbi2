@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120428195320) do
+ActiveRecord::Schema.define(:version => 20120510013402) do
+
+  create_table "action_confirmations", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "action_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -25,33 +32,28 @@ ActiveRecord::Schema.define(:version => 20120428195320) do
     t.string   "line2"
     t.string   "line3"
     t.string   "city"
-    t.string   "state_province"
-    t.string   "zip_postal"
+    t.string   "state"
+    t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "daily_record_details", :force => true do |t|
-    t.integer  "rank"
-    t.integer  "predefined_symptom_id"
+    t.integer  "severity"
+    t.integer  "symptom_id"
     t.integer  "daily_record_id"
-    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "daily_record_details", ["daily_record_id"], :name => "index_daily_record_details_on_daily_record_id"
-  add_index "daily_record_details", ["predefined_symptom_id"], :name => "index_daily_record_details_on_predefined_symptom_id"
-
   create_table "daily_records", :force => true do |t|
-    t.date     "date"
+    t.integer  "wellness_score"
     t.text     "note"
+    t.integer  "day_id"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "daily_records", ["patient_id"], :name => "index_daily_records_on_patient_id"
 
   create_table "days", :force => true do |t|
     t.date     "date"
@@ -60,25 +62,9 @@ ActiveRecord::Schema.define(:version => 20120428195320) do
     t.datetime "updated_at"
   end
 
-  create_table "disease_profiles", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "doctors", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "employees", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "histories", :force => true do |t|
-    t.string   "patient_id"
+  create_table "ip_addresses", :force => true do |t|
+    t.string   "ip"
+    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +76,21 @@ ActiveRecord::Schema.define(:version => 20120428195320) do
     t.datetime "updated_at"
   end
 
+  create_table "notes", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "message_id"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.text     "body"
@@ -97,7 +98,23 @@ ActiveRecord::Schema.define(:version => 20120428195320) do
     t.datetime "updated_at"
   end
 
-  create_table "patient_symptom_searches", :force => true do |t|
+  create_table "patient_addresses", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "address_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patient_groups", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patient_patient_groups", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "patient_group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -135,28 +152,29 @@ ActiveRecord::Schema.define(:version => 20120428195320) do
   add_index "patients", ["social_security"], :name => "index_patients_on_social_security", :unique => true
   add_index "patients", ["username"], :name => "index_patients_on_username", :unique => true
 
-  create_table "predefined_symptoms", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "symptom_category"
+  create_table "search_phrases", :force => true do |t|
+    t.text     "phrase"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "search_queries", :force => true do |t|
-    t.string   "search_query"
+  create_table "search_search_phrases", :force => true do |t|
+    t.integer  "search_id"
+    t.integer  "search_phrase_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "searches", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "search_phrase"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_symptoms", :force => true do |t|
+    t.integer  "survey_id"
+    t.integer  "symptom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -170,8 +188,16 @@ ActiveRecord::Schema.define(:version => 20120428195320) do
   add_index "surveys", ["patient_id"], :name => "index_surveys_on_patient_id"
 
   create_table "symptom_categories", :force => true do |t|
-    t.string   "category"
-    t.text     "category_description"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "symptoms", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "symptom_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

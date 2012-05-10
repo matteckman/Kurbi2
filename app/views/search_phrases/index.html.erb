@@ -1,0 +1,23 @@
+<h1>Listing search_phrases</h1>
+
+<table>
+  <tr>
+    <th>Phrase</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @search_phrases.each do |search_phrase| %>
+  <tr>
+    <td><%= search_phrase.phrase %></td>
+    <td><%= link_to 'Show', search_phrase %></td>
+    <td><%= link_to 'Edit', edit_search_phrase_path(search_phrase) %></td>
+    <td><%= link_to 'Destroy', search_phrase, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Search phrase', new_search_phrase_path %>

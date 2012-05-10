@@ -1,5 +1,29 @@
 Kurbi2::Application.routes.draw do
   
+  resources :symptoms
+
+  resources :symptom_categories
+
+  resources :daily_record_details
+
+  resources :daily_records
+
+  resources :notes
+
+  resources :search_phrases
+
+  resources :searches
+
+  resources :patient_groups
+
+  resources :addresses
+
+  resources :notifications
+
+  resources :action_confirmations
+
+  resources :actions
+
   root :to => 'pages#home'
   
   match '/about',   :to => 'pages#about',       :as => 'about'
@@ -13,10 +37,6 @@ Kurbi2::Application.routes.draw do
   match '/admin/symptom_categories/index', :to => 'symptom_categories#index', :as => 'admin_list_categories'
   match '/admin/symptom_categories/new', :to => 'symptom_categories#new', :as => 'admin_new_categories'
   match '/admin/predefined_symptoms/index', :to => 'predefined_symptoms#index', :as => 'admin_list_symptoms'
-
-  resources :user_defined_symptoms
-
-  resources :daily_record_details
   
   resources :histories, :only => [:show]
   
@@ -28,17 +48,7 @@ Kurbi2::Application.routes.draw do
     
 #  resources :system_errors
 
-  resources :symptom_categories
-
 #  resources :severities
-
-  resources :search_queries
-
-  resources :searches
-
-  resources :roles
-
-  resources :predefined_symptoms
 
 #  resources :people
 
@@ -52,15 +62,9 @@ Kurbi2::Application.routes.draw do
 
 #  resources :messages
 
-  resources :employees
-
-  resources :doctors
-
 #  resources :disease_profiles
 
 #  resources :days
-
-  resources :daily_records
 
 #  resources :addresses
 

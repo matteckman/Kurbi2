@@ -1,0 +1,2 @@
+module PatientGroupsHelper
+end

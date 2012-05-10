@@ -61,7 +61,7 @@ class DailyRecordsController < ApplicationController
     respond_to do |format|
       if @daily_record.update_attributes(params[:daily_record])
         format.html { redirect_to @daily_record, notice: 'Daily record was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @daily_record.errors, status: :unprocessable_entity }
@@ -77,7 +77,7 @@ class DailyRecordsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to daily_records_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end

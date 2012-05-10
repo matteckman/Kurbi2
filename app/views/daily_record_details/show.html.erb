@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Severity:</b>
+  <%= @daily_record_detail.severity %>
+</p>
+
+<p>
+  <b>Symptom:</b>
+  <%= @daily_record_detail.symptom_id %>
+</p>
+
+<p>
+  <b>Daily record:</b>
+  <%= @daily_record_detail.daily_record_id %>
+</p>
+
 
 <%= link_to 'Edit', edit_daily_record_detail_path(@daily_record_detail) %> |
 <%= link_to 'Back', daily_record_details_path %>

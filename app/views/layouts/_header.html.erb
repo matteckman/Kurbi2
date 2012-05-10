@@ -19,8 +19,7 @@
 					      	<%= link_to "Profile", current_patient %></li>
 					      <li class="<%= "current" if params[:controller] == "surveys" %>">
 					      	<%= link_to "Journal", survey_path %></li>
-					      <li class="<%= "current" if params[:controller] == "histories" %>">
-					      	<%= link_to "History", history_path %></li>
+					      <li><%= link_to "History", '#' %></li>
 					    </ul>
 					  </div><!--/.nav-collapse -->	
 			<% else %>	

@@ -61,7 +61,7 @@ class SearchesController < ApplicationController
     respond_to do |format|
       if @search.update_attributes(params[:search])
         format.html { redirect_to @search, notice: 'Search was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @search.errors, status: :unprocessable_entity }
@@ -77,7 +77,7 @@ class SearchesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to searches_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end

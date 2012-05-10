@@ -1,0 +1,25 @@
+<h1>Listing action_confirmations</h1>
+
+<table>
+  <tr>
+    <th>Patient</th>
+    <th>Action</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @action_confirmations.each do |action_confirmation| %>
+  <tr>
+    <td><%= action_confirmation.patient_id %></td>
+    <td><%= action_confirmation.action_id %></td>
+    <td><%= link_to 'Show', action_confirmation %></td>
+    <td><%= link_to 'Edit', edit_action_confirmation_path(action_confirmation) %></td>
+    <td><%= link_to 'Destroy', action_confirmation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Action confirmation', new_action_confirmation_path %>

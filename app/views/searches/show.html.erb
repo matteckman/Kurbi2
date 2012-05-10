@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Patient:</b>
+  <%= @search.patient_id %>
+</p>
+
+<p>
+  <b>Search phrase:</b>
+  <%= @search.search_phrase %>
+</p>
+
 
 <%= link_to 'Edit', edit_search_path(@search) %> |
 <%= link_to 'Back', searches_path %>

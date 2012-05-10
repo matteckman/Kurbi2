@@ -3,7 +3,6 @@ class SymptomCategoriesController < ApplicationController
   # GET /symptom_categories.json
   def index
     @symptom_categories = SymptomCategory.all
-    # @symptoms = @symptom_categories.predefinedsymptom.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -62,7 +61,7 @@ class SymptomCategoriesController < ApplicationController
     respond_to do |format|
       if @symptom_category.update_attributes(params[:symptom_category])
         format.html { redirect_to @symptom_category, notice: 'Symptom category was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @symptom_category.errors, status: :unprocessable_entity }
@@ -78,7 +77,7 @@ class SymptomCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to symptom_categories_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end

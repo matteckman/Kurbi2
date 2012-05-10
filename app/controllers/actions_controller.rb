@@ -61,7 +61,7 @@ class ActionsController < ApplicationController
     respond_to do |format|
       if @action.update_attributes(params[:action])
         format.html { redirect_to @action, notice: 'Action was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @action.errors, status: :unprocessable_entity }
@@ -77,7 +77,7 @@ class ActionsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to actions_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end

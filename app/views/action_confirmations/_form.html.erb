@@ -1,0 +1,12 @@
+<%= simple_form_for(@action_confirmation) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :patient_id %>
+    <%= f.input :action_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

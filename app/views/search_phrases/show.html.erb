@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Phrase:</b>
+  <%= @search_phrase.phrase %>
+</p>
+
+
+<%= link_to 'Edit', edit_search_phrase_path(@search_phrase) %> |
+<%= link_to 'Back', search_phrases_path %>

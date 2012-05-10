@@ -1,25 +1,14 @@
-<%= form_for(@daily_record) do |f| %>
-  <% if @daily_record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@daily_record.errors.count, "error") %> prohibited this daily_record from being saved:</h2>
+<%= simple_form_for(@daily_record) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @daily_record.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.input :wellness_score %>
+    <%= f.input :note %>
+    <%= f.input :day_id %>
+    <%= f.input :patient_id %>
+  </div>
 
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

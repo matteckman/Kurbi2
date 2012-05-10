@@ -61,7 +61,7 @@ class AddressesController < ApplicationController
     respond_to do |format|
       if @address.update_attributes(params[:address])
         format.html { redirect_to @address, notice: 'Address was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @address.errors, status: :unprocessable_entity }
@@ -77,7 +77,7 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to addresses_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end

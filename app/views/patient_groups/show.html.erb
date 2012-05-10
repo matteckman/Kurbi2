@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @patient_group.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @patient_group.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_group_path(@patient_group) %> |
+<%= link_to 'Back', patient_groups_path %>

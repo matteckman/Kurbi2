@@ -2,8 +2,10 @@
 
 <table>
   <tr>
-    <th>Date</th>
+    <th>Wellness score</th>
     <th>Note</th>
+    <th>Day</th>
+    <th>Patient</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +13,10 @@
 
 <% @daily_records.each do |daily_record| %>
   <tr>
-    <td><%= daily_record.date %></td>
+    <td><%= daily_record.wellness_score %></td>
     <td><%= daily_record.note %></td>
+    <td><%= daily_record.day_id %></td>
+    <td><%= daily_record.patient_id %></td>
     <td><%= link_to 'Show', daily_record %></td>
     <td><%= link_to 'Edit', edit_daily_record_path(daily_record) %></td>
     <td><%= link_to 'Destroy', daily_record, confirm: 'Are you sure?', method: :delete %></td>
