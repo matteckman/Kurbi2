@@ -1,9 +1,16 @@
-<h1>Symptom Category</h1>
+<legend>Symptom Category</legend>
 
 <p>
   <b>Category</b><br>
   <%= @symptom_category.name %>
 </p>
+
+<% if @symptom_category.description? == true %>
+<p>
+  <b>Description</b><br>
+  <%= @symptom_category.description %>
+</p>
+<% end %>
 
 <div class="form-actions">
   <%= link_to 'Back', symptom_categories_path, :class => 'btn'  %>

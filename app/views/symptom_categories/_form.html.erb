@@ -2,9 +2,9 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Symptom Category</legend>
 	<%= f.input :name, :label => "Category" %>
-	<%= f.input :description, :class => 'textarea', :label => "Description" %>
+	<%= f.input :description %>
     <div class="form-actions">
-	    <%= f.submit nil, :class => 'btn btn-primary' %>
+	    <%= f.submit nil, :class => 'btn btn-success' %>
 	    <%= link_to 'Cancel', symptom_categories_path, :class => 'btn' %>
 	</div><!--/ .form-actions-->    
   </fieldset>

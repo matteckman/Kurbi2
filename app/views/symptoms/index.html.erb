@@ -1,27 +1,26 @@
-<h1>Listing symptoms</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Symptom category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @symptoms.each do |symptom| %>
-  <tr>
-    <td><%= symptom.name %></td>
-    <td><%= symptom.description %></td>
-    <td><%= symptom.symptom_category_id %></td>
-    <td><%= link_to 'Show', symptom %></td>
-    <td><%= link_to 'Edit', edit_symptom_path(symptom) %></td>
-    <td><%= link_to 'Destroy', symptom, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<legend>MS Symptoms</legend>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Symptom</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @symptoms.each do |symptom| %>
+      <tr>
+        <td><%= symptom.id %></td>
+        <td><%= link_to symptom.name, symptom_path(symptom) %></td>
+        <td><%= symptom.symptom_category.name %></td>
+        <td>
+          <%= link_to 'Edit', edit_symptom_path(symptom), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', symptom_path(symptom), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Symptom', new_symptom_path %>
+<%= link_to 'New', new_symptom_path, :class => 'btn btn-success' %>

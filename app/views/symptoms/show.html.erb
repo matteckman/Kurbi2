@@ -1,20 +1,23 @@
-<p id="notice"><%= notice %></p>
-
+<legend>Symptom</legend>
 <p>
-  <b>Name:</b>
+  <b>Name</b><br>
   <%= @symptom.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Category</b><br>
+  <%= @symptom.symptom_category.try(:name) %>
+</p>
+
+<% if @symptom.description? == true %>
+<p>
+  <b>Description</b><br>
   <%= @symptom.description %>
 </p>
+<% end %>
 
-<p>
-  <b>Symptom category:</b>
-  <%= @symptom.symptom_category_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_symptom_path(@symptom) %> |
-<%= link_to 'Back', symptoms_path %>
+<div class="form-actions">
+  <%= link_to 'Back', symptoms_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_symptom_path(@symptom), :class => 'btn' %>
+  <%= link_to 'Delete', symptom_path(@symptom), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
