@@ -1,25 +1,24 @@
-<h1>Listing symptom_categories</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @symptom_categories.each do |symptom_category| %>
-  <tr>
-    <td><%= symptom_category.name %></td>
-    <td><%= symptom_category.description %></td>
-    <td><%= link_to 'Show', symptom_category %></td>
-    <td><%= link_to 'Edit', edit_symptom_category_path(symptom_category) %></td>
-    <td><%= link_to 'Destroy', symptom_category, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Symptom Categories</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @symptom_categories.each do |symptom_category| %>
+      <tr>
+        <td><%= symptom_category.id %></td>
+        <td><%= link_to symptom_category.name, symptom_category_path(symptom_category) %></td>
+        <td>
+          <%= link_to 'Edit', edit_symptom_category_path(symptom_category), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', symptom_category_path(symptom_category), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Symptom category', new_symptom_category_path %>
+<%= link_to 'New', new_symptom_category_path, :class => 'btn btn-primary' %>

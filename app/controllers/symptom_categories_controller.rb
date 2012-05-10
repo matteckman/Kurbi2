@@ -3,7 +3,8 @@ class SymptomCategoriesController < ApplicationController
   # GET /symptom_categories.json
   def index
     @symptom_categories = SymptomCategory.all
-
+	@title = "Symptom Categories"
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @symptom_categories }
@@ -14,6 +15,7 @@ class SymptomCategoriesController < ApplicationController
   # GET /symptom_categories/1.json
   def show
     @symptom_category = SymptomCategory.find(params[:id])
+    @title = @symptom_category.name
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class SymptomCategoriesController < ApplicationController
   # GET /symptom_categories/new.json
   def new
     @symptom_category = SymptomCategory.new
+    @title = "New Symptom Category"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +38,7 @@ class SymptomCategoriesController < ApplicationController
   # GET /symptom_categories/1/edit
   def edit
     @symptom_category = SymptomCategory.find(params[:id])
+    @title = "Edit Symptom Category"
   end
 
   # POST /symptom_categories

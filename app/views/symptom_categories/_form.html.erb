@@ -1,12 +1,11 @@
-<%= simple_form_for(@symptom_category) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= simple_form_for @symptom_category, :html => { :class => 'form-vertical' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Symptom Category</legend>
+	<%= f.input :name, :label => "Category" %>
+	<%= f.input :description, :class => 'textarea', :label => "Description" %>
+    <div class="form-actions">
+	    <%= f.submit nil, :class => 'btn btn-primary' %>
+	    <%= link_to 'Cancel', symptom_categories_path, :class => 'btn' %>
+	</div><!--/ .form-actions-->    
+  </fieldset>
 <% end %>
