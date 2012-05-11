@@ -41,7 +41,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     @title = "Edit Account Settings"
   end
-
+  
   # POST /patients
   # POST /patients.json
   def create

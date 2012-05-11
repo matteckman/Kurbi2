@@ -6,6 +6,8 @@ gem 'rails', '3.1.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'simple_form', '~> 2.0.1'
+gem 'paperclip'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -16,10 +18,6 @@ group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'bootstrap-sass'
 end
-
-# gem 'friendly_id', '~> 4.0.4'
-gem 'simple_form', '~> 2.0.1'
-gem 'paperclip'
 
 # jQuery Stuff
 gem 'jquery-rails'
