@@ -4,7 +4,7 @@
 	<%= form_tag sessions_path, :html => { :class => 'form-vertical' } do %> 
 	  <div class="field">
 	    <%= label_tag :email %>
-	    <%= text_field_tag :email, params[:email], :placeholder => "email" %>
+	    <%= text_field_tag :email, params[:email], :placeholder => "email", :autofocus => true %>
 	  </div>
 	  <div class="field">
 	    <%= label_tag :password %>

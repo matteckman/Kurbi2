@@ -8,6 +8,8 @@ gem 'rails', '3.1.3'
 gem 'mysql2'
 gem 'simple_form', '~> 2.0.1'
 gem 'paperclip'
+gem 'devise'
+gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.

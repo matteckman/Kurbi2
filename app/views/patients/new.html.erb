@@ -2,7 +2,7 @@
 <section class="hero-unit">
 		<h2>Sign up</h2>
 		<%= simple_form_for @patient, :html => { :class => 'form-vertical' } do |f| %>
-			<%= f.input :first_name, :placeholder => "first name", :label => false %>
+			<%= f.input :first_name, :placeholder => "first name", :label => false, :autofocus => true %>
 			<%= f.input :last_name, :placeholder => "last name", :label => false %>
 			<%= f.input :email, :placeholder => "email", :label => false  %>
 			<%= f.input :password, :placeholder => "password", :label => false %>
